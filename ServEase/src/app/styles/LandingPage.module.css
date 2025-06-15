@@ -1,0 +1,1125 @@
+.smartscheduling {
+  position: absolute;
+  top: 2500px;
+  left: 537px;
+  border-radius: var(--br-20);
+  background-color: var(--color-antiquewhite);
+  width: 384px;
+  height: 210px;
+}
+.why {
+  color: var(--color-gray-300);
+}
+.span {
+  color: var(--color-black);
+}
+.choose {
+  color: var(--color-tan);
+}
+.whyChooseServ {
+  font-weight: 600;
+}
+.ease {
+  font-weight: 900;
+}
+.whyChooseServeaseContainer {
+  position: absolute;
+  top: 2399px;
+  left: 143px;
+  font-size: 48px;
+  line-height: 150%;
+  text-align: left;
+  color: var(--color-gray-300);
+}
+.footerChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-white);
+  width: 1440px;
+  height: 534px;
+}
+.yourTrustedPlatform {
+  position: absolute;
+  top: 157px;
+  left: 143px;
+  line-height: 40px;
+  display: inline-block;
+  width: 359px;
+}
+.contactUs {
+  position: absolute;
+  top: 87px;
+  left: calc(50% + 343px);
+  font-size: var(--font-size-26);
+  line-height: 128.02%;
+  display: inline-block;
+  width: 217px;
+}
+.supportserveasecom {
+  position: absolute;
+  top: 157px;
+  left: calc(50% + 343px);
+  line-height: 40px;
+}
+.contactNumber {
+  position: absolute;
+  top: 197px;
+  left: calc(50% + 343px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.support {
+  position: absolute;
+  top: 87px;
+  left: calc(50% + 144px);
+  font-size: var(--font-size-26);
+  line-height: 128.02%;
+  display: inline-block;
+  width: 196px;
+}
+.faqs {
+  position: absolute;
+  top: 158px;
+  left: calc(50% + 144px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.privacyPolicy {
+  position: absolute;
+  top: 197px;
+  left: calc(50% + 144px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.termsConditions {
+  position: absolute;
+  top: 237px;
+  left: calc(50% + 144px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.aboutUs {
+  position: absolute;
+  top: 277px;
+  left: calc(50% + 144px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.quickLinks {
+  position: absolute;
+  top: 87px;
+  left: calc(50% - 126px);
+  font-size: var(--font-size-26);
+  line-height: 128.02%;
+  display: inline-block;
+  width: 196px;
+}
+.servease {
+  position: absolute;
+  top: 87px;
+  left: calc(50% - 529px);
+  font-size: var(--font-size-26);
+  line-height: 128.02%;
+  display: inline-block;
+  width: 148px;
+}
+.home {
+  position: absolute;
+  top: 158px;
+  left: calc(50% - 126px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.discover {
+  position: absolute;
+  top: 197px;
+  left: calc(50% - 126px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.createAnAccount {
+  position: absolute;
+  top: 236px;
+  left: calc(50% - 126px);
+  line-height: 40px;
+  display: inline-block;
+  width: 233px;
+}
+.facebook {
+  position: absolute;
+  top: 0px;
+  left: 32px;
+  font-weight: 500;
+}
+.groupChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+}
+.facebookParent {
+  position: absolute;
+  top: 347px;
+  left: 153px;
+  width: 117px;
+  height: 22px;
+  font-size: var(--font-size-18);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.twitter {
+  position: absolute;
+  top: 0px;
+  left: 34px;
+  font-weight: 500;
+}
+.groupItem {
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  width: 26px;
+  height: 22px;
+  overflow: hidden;
+}
+.twitterParent {
+  position: absolute;
+  top: 347px;
+  left: 305px;
+  width: 95px;
+  height: 23px;
+  font-size: var(--font-size-18);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.instagram {
+  position: absolute;
+  top: 1px;
+  left: 32px;
+  font-weight: 500;
+}
+.groupInner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.instagramParent {
+  position: absolute;
+  top: 346px;
+  left: 435px;
+  width: 119px;
+  height: 24px;
+  font-size: var(--font-size-18);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.lineDiv {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 1185px;
+  height: 2px;
+}
+.servease2025 {
+  position: absolute;
+  top: 27px;
+  left: 14px;
+}
+.lineParent {
+  position: absolute;
+  top: 389px;
+  left: 129px;
+  width: 1183px;
+  height: 53px;
+  font-size: var(--font-size-20);
+}
+.serveaseLogoAlbumCover3 {
+  position: absolute;
+  top: 84px;
+  left: 143px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.footer {
+  position: absolute;
+  top: 3708px;
+  left: 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    var(--color-white);
+  width: 1440px;
+  height: 475px;
+  text-align: left;
+  color: var(--color-black);
+}
+.whatweofferbox {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--color-linen);
+  width: 1440px;
+  height: 754px;
+}
+.offer {
+  font-weight: 900;
+  color: var(--color-tan);
+}
+.whatWeOfferContainer {
+  position: absolute;
+  top: 110px;
+  left: 145px;
+  font-size: 50px;
+  line-height: 150%;
+  text-align: left;
+  color: var(--color-gray-300);
+}
+.onlineBookingSystem {
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 146px);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 292px;
+}
+.easilyBookAppointments {
+  position: absolute;
+  top: 260px;
+  left: calc(50% - 159px);
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  font-family: var(--font-benne);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 318px;
+}
+.onlineBookingChild {
+  position: absolute;
+  top: 40px;
+  left: 125px;
+  border-radius: 50%;
+  background-color: var(--color-antiquewhite);
+  width: 120px;
+  height: 120px;
+}
+.icon {
+  position: absolute;
+  top: 50px;
+  left: 135px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.intersectIcon {
+  position: relative;
+  width: 239.4px;
+  height: 50.8px;
+}
+.intersectIcon1 {
+  position: relative;
+  width: 81px;
+  height: 189px;
+}
+.onlineBooking {
+  position: absolute;
+  top: 236px;
+  left: calc(50% - 575px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-20);
+  background: linear-gradient(#b29575, #b29575), var(--color-white);
+  width: 370px;
+  height: 430px;
+}
+.dualDashboardAccess {
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 145px);
+  line-height: 150%;
+}
+.whetherYoureA {
+  position: absolute;
+  top: 260px;
+  left: calc(50% - 143px);
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  font-family: var(--font-benne);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 285px;
+}
+.intersectIcon2 {
+  position: relative;
+  width: 184.6px;
+  height: 135.6px;
+}
+.intersectIcon3 {
+  position: relative;
+  width: 219px;
+  height: 165px;
+}
+.dualDahsboard {
+  position: absolute;
+  top: 235px;
+  left: calc(50% + 208px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-20);
+  background: linear-gradient(#b29575, #b29575), var(--color-white);
+  width: 370px;
+  height: 430px;
+}
+.serviceDirectory1 {
+  position: absolute;
+  top: 200px;
+  left: 40px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 291px;
+}
+.searchForService {
+  position: absolute;
+  top: 260px;
+  left: calc(50% - 152px);
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  font-family: var(--font-benne);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 303px;
+}
+.intersectIcon4 {
+  position: relative;
+  width: 61px;
+  height: 173.7px;
+}
+.intersectIcon5 {
+  position: relative;
+  width: 163.5px;
+  height: 168.3px;
+}
+.serviceDirectory {
+  position: absolute;
+  top: 235px;
+  left: calc(50% - 184px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-20);
+  background: linear-gradient(#b29575, #b29575), var(--color-white);
+  width: 370px;
+  height: 430px;
+}
+.whatweoffer {
+  position: absolute;
+  top: 1515px;
+  left: -1px;
+  width: 1440px;
+  height: 754px;
+  font-size: 25px;
+  color: var(--color-white);
+}
+.builtforGrowth {
+  position: absolute;
+  top: 2500px;
+  left: 946px;
+  border-radius: var(--br-20);
+  background-color: var(--color-gray-100);
+  width: 351px;
+  height: 486px;
+}
+.landingPageChild {
+  position: absolute;
+  top: 2500px;
+  left: 143px;
+  border-radius: var(--br-20);
+  background-color: var(--color-antiquewhite);
+  width: 373px;
+  height: 210px;
+}
+.landingPageItem {
+  position: absolute;
+  top: 2736px;
+  left: 143px;
+  border-radius: var(--br-20);
+  width: 779px;
+  height: 250px;
+  object-fit: cover;
+}
+.intersectIcon6 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: scale(1.374);
+}
+.wrapperIntersect {
+  position: relative;
+  width: 107px;
+  height: 84px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landingPageInner {
+  position: absolute;
+  top: 2527px;
+  left: 672px;
+  border-radius: 50%;
+  background: linear-gradient(-87.43deg, #a68563, var(--color-gray-200));
+  width: 47px;
+  height: 47px;
+}
+.rectangleDiv {
+  position: absolute;
+  top: 2486px;
+  left: 534px;
+  border-radius: var(--br-20);
+  background-color: var(--color-whitesmoke);
+  width: 384px;
+  height: 14px;
+}
+.landingPageChild1 {
+  position: absolute;
+  top: 2472px;
+  left: 532px;
+  border-radius: var(--br-20);
+  background-color: var(--color-whitesmoke);
+  width: 384px;
+  height: 14px;
+}
+.landingPageChild2 {
+  position: absolute;
+  top: 2458px;
+  left: 532px;
+  border-radius: var(--br-20);
+  background-color: var(--color-whitesmoke);
+  width: 384px;
+  height: 14px;
+}
+.intersectIcon7 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: scale(1.116);
+}
+.wrapperIntersect1 {
+  position: relative;
+  width: 343.8px;
+  height: 283px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landingPageChild3 {
+  position: absolute;
+  top: 2454px;
+  left: 918px;
+  border-radius: var(--br-20);
+  background-color: var(--color-whitesmoke);
+  width: 384px;
+  height: 46px;
+}
+.landingPageChild5 {
+  position: absolute;
+  top: 2853px;
+  left: 922px;
+  border-radius: var(--br-20);
+  background-color: var(--color-whitesmoke);
+  width: 384px;
+  height: 23px;
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+}
+.intersectIcon8 {
+  position: relative;
+  width: 117px;
+  height: 91px;
+}
+.allInOnePlatform {
+  position: absolute;
+  top: 2519px;
+  left: 225px;
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  display: flex;
+  color: var(--color-gray-200);
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.smartScheduling {
+  position: absolute;
+  top: 2596px;
+  left: 627px;
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  display: flex;
+  color: var(--color-gray-200);
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.builtForGrowth {
+  position: absolute;
+  top: 2554px;
+  left: 1018px;
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.transparentTrustworthy {
+  position: absolute;
+  top: 2861px;
+  left: 392px;
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 281px;
+  height: 30px;
+}
+.instantMessaging {
+  position: absolute;
+  top: 2861px;
+  left: 983px;
+  font-size: var(--font-size-20);
+  line-height: 150%;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  width: 202px;
+  height: 30px;
+}
+.browseBookAnd {
+  position: absolute;
+  top: 2561px;
+  left: 224px;
+  line-height: 150%;
+  font-family: var(--font-benne);
+  color: var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 209px;
+  height: 46px;
+}
+.avoidConflictsWith {
+  position: absolute;
+  top: 2638px;
+  left: 601px;
+  line-height: 150%;
+  font-family: var(--font-benne);
+  color: var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 252px;
+  height: 44px;
+}
+.boostYourPresence {
+  position: absolute;
+  top: 2596px;
+  left: 983px;
+  line-height: 150%;
+  font-family: var(--font-benne);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 276px;
+  height: 69px;
+}
+.connectInstantlyFor {
+  position: absolute;
+  top: 2903px;
+  left: 984px;
+  line-height: 150%;
+  font-family: var(--font-benne);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 277px;
+  height: 43px;
+}
+.makeConfidentDecisions {
+  position: absolute;
+  top: 2903px;
+  left: 380px;
+  line-height: 150%;
+  font-family: var(--font-benne);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 304px;
+  height: 36px;
+}
+.servChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-20);
+  width: 345px;
+  height: 360px;
+}
+.subtractIcon {
+  position: absolute;
+  top: 21px;
+  left: 206px;
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
+.serviceFacilities {
+  position: absolute;
+  top: 307px;
+  left: 37px;
+  line-height: 150%;
+}
+.div {
+  position: absolute;
+  top: 221px;
+  left: 32px;
+  font-size: 70px;
+  line-height: 150%;
+  font-family: var(--font-dm-sans);
+}
+.serv {
+  position: absolute;
+  top: 964px;
+  left: calc(50% - 577px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-20);
+  background-color: var(--color-white);
+  width: 345px;
+  height: 360px;
+  text-align: left;
+  font-size: 25px;
+  font-family: var(--font-benne);
+}
+.aboutusboxChild {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: var(--br-20);
+  background-color: var(--color-linen);
+  width: 794.3px;
+  height: 360px;
+}
+.aboutUsTxtContainer {
+  width: 100%;
+}
+.aboutUs1 {
+  position: absolute;
+  top: 35px;
+  left: 37.31px;
+  font-size: 50px;
+  line-height: 150%;
+  display: flex;
+  font-family: var(--font-dm-sans);
+  align-items: center;
+  width: 257px;
+  color: var(--color-gray-300);
+}
+.serveaseIsYour {
+  position: absolute;
+  top: 126px;
+  left: 36.97px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  width: 374.7px;
+}
+.fromHomeRepairs {
+  position: absolute;
+  top: 240px;
+  left: 36.97px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  width: 374.7px;
+}
+.intersectIcon9 {
+  position: relative;
+  width: 350.7px;
+  height: 360px;
+}
+.intersectIcon10 {
+  position: relative;
+  width: 332.7px;
+  height: 360px;
+}
+.aboutusbox {
+  position: absolute;
+  top: 964px;
+  left: 502.69px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 794.3px;
+  height: 360px;
+  text-align: left;
+  color: var(--color-gray-200);
+  font-family: var(--font-benne);
+}
+.areYouLooking {
+  margin: 0;
+}
+.areYouLookingContainer {
+  position: absolute;
+  top: -31px;
+  left: 0px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  width: 346px;
+  height: 90px;
+}
+.heading2 {
+  position: absolute;
+  width: calc(100% - 160px);
+  top: 87px;
+  right: 80px;
+  left: 80px;
+  height: 90px;
+  font-size: var(--font-size-30);
+}
+.findTrustedProfessionals {
+  position: absolute;
+  top: 149px;
+  left: 80px;
+  line-height: 27.75px;
+  display: flex;
+  align-items: center;
+  width: 355.4px;
+  height: 55.5px;
+}
+.getStarted {
+  position: absolute;
+  top: 19.11px;
+  left: calc(50% - 52.5px);
+  line-height: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 83.3px;
+  height: 15px;
+}
+.svgIcon {
+  position: absolute;
+  top: calc(50% - 9.78px);
+  left: calc(50% + 40.44px);
+  width: 14px;
+  height: 14px;
+}
+.link {
+  position: absolute;
+  top: 245px;
+  left: 80px;
+  border-radius: var(--br-12);
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-tan);
+  box-sizing: border-box;
+  width: 159px;
+  height: 56px;
+  text-align: center;
+  color: var(--color-white);
+}
+.background {
+  position: absolute;
+  height: calc(100% - 87px);
+  width: calc(100% - 882px);
+  top: 89px;
+  right: 739px;
+  bottom: -2px;
+  left: 143px;
+  border-radius: var(--br-20);
+  background-color: var(--color-antiquewhite);
+}
+.areYouOffering {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  width: 356px;
+  height: 90px;
+}
+.heading21 {
+  position: absolute;
+  width: calc(100% - 160px);
+  top: 53px;
+  right: 80px;
+  left: 80px;
+  height: 90px;
+  font-size: var(--font-size-30);
+}
+.link1 {
+  position: absolute;
+  top: 245px;
+  left: 80px;
+  border-radius: var(--br-12);
+  background-color: var(--color-antiquewhite);
+  border: 1px solid var(--color-antiquewhite);
+  box-sizing: border-box;
+  width: 159px;
+  height: 56px;
+  text-align: center;
+  color: var(--color-dimgray);
+}
+.electricCar2svgFill {
+  position: absolute;
+  top: 204.72px;
+  left: 427px;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+}
+.background1 {
+  position: absolute;
+  height: calc(100% - 87px);
+  width: calc(100% - 891px);
+  top: 89px;
+  right: 144px;
+  bottom: -2px;
+  left: 747px;
+  border-radius: var(--br-20);
+  background-color: var(--color-gray-100);
+  color: var(--color-antiquewhite);
+}
+.register {
+  position: absolute;
+  top: 3105px;
+  left: calc(50% - 720px);
+  background-color: var(--color-whitesmoke);
+  width: 1440px;
+  height: 423px;
+  text-align: left;
+  font-size: var(--font-size-15);
+  color: var(--color-gray-500);
+}
+.image10 {
+  position: absolute;
+  top: 59px;
+  left: 35px;
+  width: 1299.6px;
+  height: 975px;
+}
+.discoverASmarter {
+  position: absolute;
+  top: 617px;
+  right: 59px;
+  line-height: 130%;
+  font-family: var(--font-benne);
+  display: flex;
+  align-items: center;
+  width: 527px;
+}
+.bridgingClientsAndContainer {
+  position: absolute;
+  top: 620px;
+  left: 66px;
+  font-size: 49px;
+  line-height: 150%;
+}
+.star {
+  width: 16px;
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.joinServeaseNow {
+  width: 226px;
+  position: relative;
+  line-height: 100%;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.button {
+  position: absolute;
+  top: 725px;
+  left: 714px;
+  border-radius: var(--br-8);
+  background-color: var(--color-linen);
+  border: 1px solid var(--color-tan);
+  box-sizing: border-box;
+  width: 254px;
+  height: 47px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-12);
+  gap: var(--gap-8);
+  text-align: center;
+  font-size: 23px;
+  color: var(--color-tan);
+}
+.heroImage {
+  position: absolute;
+  top: calc(50% - 2034.5px);
+  left: calc(50% - 651px);
+  border-radius: 40px;
+  width: 1300px;
+  height: 850px;
+  overflow: hidden;
+  background-image: url("/Hero Image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: left;
+
+  font-size: 25px;
+}
+.serveaseLogoAlbumCover31 {
+  width: 40px;
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+.serv1 {
+  font-weight: 500;
+}
+.servease1 {
+  position: relative;
+  font-size: 28px;
+  line-height: 150%;
+  text-align: left;
+}
+.navigationChild {
+  width: 124px;
+  height: 45px;
+}
+.home1 {
+  width: 119px;
+  position: relative;
+  line-height: 150%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contactUs1 {
+  width: 147px;
+  position: relative;
+  line-height: 150%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 27px;
+  flex-shrink: 0;
+}
+.homeParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  color: var(--color-gray-400);
+}
+.signIn {
+  width: 75px;
+  position: relative;
+  line-height: 100%;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.button1 {
+  width: 100px;
+  border-radius: var(--br-8);
+  background-color: var(--color-tan);
+  border: 1px solid var(--color-tan);
+  box-sizing: border-box;
+  height: 40px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-12);
+  gap: var(--gap-8);
+  color: var(--color-snow);
+}
+.navigation {
+  position: absolute;
+  top: 25px;
+  left: calc(50% - 556px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  background-color: var(--color-white);
+  width: 1113px;
+  height: 69px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 90px 0px 60px;
+  box-sizing: border-box;
+  gap: 10px;
+  font-size: var(--font-size-18);
+  color: var(--color-black);
+}
+.serveaseLogoAlbumCover1 {
+  position: absolute;
+  top: 3366px;
+  left: 1132px;
+  width: 145px;
+  height: 145px;
+  object-fit: cover;
+}
+.serveaseLogoAlbumCover32 {
+  position: absolute;
+  top: 3366px;
+  left: 536px;
+  width: 145px;
+  height: 145px;
+  object-fit: cover;
+}
+.landingPage {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-whitesmoke);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  height: 4189px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-16);
+  color: var(--color-snow);
+  font-family: var(--font-dm-sans);
+}
