@@ -1,8 +1,8 @@
 // next.config.mjs
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  // clean config without experimental
 };
 
 export default nextConfig;
