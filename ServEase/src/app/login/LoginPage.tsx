@@ -1,7 +1,16 @@
+"use client"; // REQUIRED for client-side interactivity
+
+import { useCallback } from "react";
 import Image from "next/image";
 import styles from "../styles/LoginPage.module.css";
 
 const Login = () => {
+  const onTabsNavContainerClick = useCallback(() => {
+    // You can add navigation or logic here, like:
+    // router.push("/signup");
+    console.log("Sign up clicked");
+  }, []);
+
   return (
     <div className={styles.login}>
       <div className={styles.image} />
@@ -16,7 +25,10 @@ const Login = () => {
                 <div className={styles.tabsNav}>
                   <div className={styles.signUp}>Log In</div>
                 </div>
-                <div className={styles.tabsNav1}>
+                <div
+                  className={styles.tabsNav1}
+                  onClick={onTabsNavContainerClick}
+                >
                   <div className={styles.signUp1}>Sign Up</div>
                 </div>
               </div>
@@ -78,7 +90,10 @@ const Login = () => {
                 </div>
               </div>
               <div className={styles.haveAnAccountLogin}>
-                <div className={styles.dontHaveAnContainer}>
+                <div
+                  className={styles.dontHaveAnContainer}
+                  onClick={onTabsNavContainerClick}
+                >
                   <span className={styles.dontHaveAn}>
                     Don’t have an account?{" "}
                   </span>
@@ -115,7 +130,7 @@ const Login = () => {
         height={978}
         sizes="100vw"
         alt="Export Image"
-        src="/export 2.png"
+        src="/export 2.svg"
       />
     </div>
   );
