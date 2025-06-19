@@ -334,17 +334,24 @@
   	height: 978px;
   	object-fit: cover;
 }
-.login {
-  	width: 100%;
-  	position: relative;
-  	background-color: var(--color-whitesmoke);
-  	border: 1px solid var(--color-black);
-  	box-sizing: border-box;
-  	height: 1024px;
-  	overflow: hidden;
-  	text-align: left;
-  	font-size: var(--font-size-16);
-  	color: var(--color-dimgray-100);
-  	font-family: var(--font-dm-sans);
+
+.login 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full screen height */
+  width: 100%;
+  position: relative;
+  background-color: var(--color-whitesmoke);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-16);
+  color: var(--color-dimgray-100);
+  font-family: var(--font-dm-sans);
+  padding: 20px;
 }
+
 

@@ -1,13 +1,11 @@
-"use client"; // REQUIRED for client-side interactivity
-
+"use client";
+import type { NextPage } from "next";
 import { useCallback } from "react";
 import Image from "next/image";
 import styles from "../styles/LoginPage.module.css";
 
-const Login = () => {
+const Login: NextPage = () => {
   const onTabsNavContainerClick = useCallback(() => {
-    // You can add navigation or logic here, like:
-    // router.push("/signup");
     console.log("Sign up clicked");
   }, []);
 
@@ -77,7 +75,7 @@ const Login = () => {
                       height={22}
                       sizes="100vw"
                       alt="Check Icon"
-                      src="/Bold / Essentional, UI / Check Square.svg"
+                      src="/Bold/EssentionalUI/CheckSquare.svg"
                     />
                     <div className={styles.rememberMe}>Remember me</div>
                   </div>
@@ -91,13 +89,13 @@ const Login = () => {
               </div>
               <div className={styles.haveAnAccountLogin}>
                 <div
-                  className={styles.dontHaveAnContainer}
+                  className={styles.welcomeToServeaseContainer}
                   onClick={onTabsNavContainerClick}
                 >
                   <span className={styles.dontHaveAn}>
                     Don’t have an account?{" "}
                   </span>
-                  <span className={styles.signUp3}>Sign up </span>
+                  <span className={styles.signUp3}>Sign up</span>
                 </div>
               </div>
             </div>
@@ -129,8 +127,8 @@ const Login = () => {
         width={832}
         height={978}
         sizes="100vw"
-        alt="Export Image"
-        src="/export 2.svg"
+        alt="Export"
+        src="/logo.png"
       />
     </div>
   );
