@@ -3,6 +3,26 @@
 import { createClient } from '../lib/supabase/server';
 import { redirect } from 'next/navigation';
 
+export async function profile(formData: FormData) {
+  const firstName = formData.get('first_name') as string;
+    const lastName = formData.get('last_name') as string;
+
+
+    if (!firstName || firstName.trim() === '') {
+      return redirect('/register?message=First name is required.');
+    }
+    if (!lastName || lastName.trim() === '') {
+      return redirect('/register?message=Last name is required.');
+    }
+
+    if (/^\d+$/.test(firstName)) {
+      return redirect('/register?message=First name cannot contain only numbers.');
+    }
+    if (/^\d+$/.test(lastName)) {
+      return redirect('/register?message=Last name cannot contain only numbers.');
+    }
+}
+
 export async function signup(formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;

@@ -23,7 +23,7 @@ const Signup: NextPage = () => {
   };
 
   const handleClick = () => {
-    setIsClicked(true); // Trigger animation
+    setIsClicked(true);
     setTimeout(() => {
       setIsClicked(false);
       if (!selectedUserType) {
@@ -31,7 +31,7 @@ const Signup: NextPage = () => {
       } else {
         router.push("/login");
       }
-    }, 200); // Match animation duration
+    }, 200);
   };
 
   const showHover = (type: "client" | "service") => {

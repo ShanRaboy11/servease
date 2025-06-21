@@ -48,8 +48,6 @@
   display: none;
 }
 
-
-
 .loginSignUp {
   position: absolute;
   top: calc(50% - 19.5px);
@@ -311,6 +309,7 @@
   height: 27px;
 }
 
+/* FIXED: Removed pointer-events: none and made input fields interactive */
 .textField1 {
   align-self: stretch;
   position: relative;
@@ -319,8 +318,13 @@
   box-sizing: border-box;
   height: 56px;
   width: auto;
-  overflow: hidden;
   flex-shrink: 0;
+  background-color: white;
+  transition: all 0.2s ease;
+  cursor: text;
+  display: flex;
+  align-items: center;
+  /* Ensure proper alignment for input field */
 }
 
 .textField {
@@ -350,7 +354,7 @@
   box-sizing: border-box;
   height: 56px;
   width: auto;
-  overflow: visible; /* Changed from hidden to visible for dropdown */
+  overflow: visible;
   flex-shrink: 0;
   background-color: white;
   display: flex;
@@ -367,6 +371,10 @@
   box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.2);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.textField2.fieldSelected {
+  border-color: var(--color-tan);
 }
 
 /* Dropdown Menu - The actual dropdown list */
@@ -386,7 +394,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Individual dropdown items */
+/* Individual dropdown items - FIXED COLOR ISSUE */
 .dropdownItem {
   padding: 12px 16px;
   cursor: pointer;
@@ -394,6 +402,7 @@
   color: var(--color-dimgray-500);
   border-bottom: 1px solid var(--color-dimgray-300);
   transition: background-color 0.15s ease;
+  background-color: white;
 }
 
 .dropdownItem:last-child {
@@ -401,32 +410,8 @@
 }
 
 .dropdownItem:hover {
-  background-color: var(--color-tan);;;
+  background-color: var(--color-tan);
   color: white;
-}
-
-/* Selected text styling */
-.month,
-.day,
-.year {
-  color: var(--color-dimgray-500);
-  font-size: var(--font-size-16);
-  flex: 1;
-  text-align: left;
-}
-
-/* Placeholder styling when no option is selected */
-.month span,
-.day span,
-.year span {
-  color: var(--color-dimgray-300);
-}
-
-/* When an option is selected */
-.textField2:not(:placeholder-shown) .month,
-.textField2:not(:placeholder-shown) .day,
-.textField2:not(:placeholder-shown) .year {
-  color: var(--color-dimgray-500);
 }
 
 .textField6 {
@@ -519,13 +504,35 @@
   width: 100%;
 }
 
-.errorMessage{
-  opacity: 0; /*make this property 1 if error arises*/
-  font-size: var(--font-size-14);
-  position: relative;
+.errorMessage {
   margin: 0 auto;
-  margin-top: 15px;
-  color: red;
+  margin-top: 8px;
+  width: 570px;
+  background-color: #ffe6e6;
+  border: 1px solid #ff4d4f;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  color: #d8000c;
+  font-size: 15px;
+  font-weight: 400;
+  height: 42px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  bottom: 8px;
+}
+
+.errorMessage.errorDetected {
+  opacity: 1;
+  height: 42px; 
+  padding: 8px;
+  margin-top: 8px;
+  background-color: #ffe6e6;
+  border: 1px solid #ff4d4f;
+  border-radius: 12px;
+  color: #d8000c;
 }
 
 .signUpWrapper {
@@ -548,14 +555,32 @@
   flex-shrink: 0;
   opacity: 0.5;
   text-align: center;
-  cursor: pointer;
   font-size: 22px;
   color: var(--color-white);
+  cursor: pointer;
 }
 
-/*.button2:hover {
-	opacity: 1; activate after all fields are filled
-}*/
+.filled {
+	opacity: 1; 
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out
+}
+
+.clicked {
+  animation: pressDown 0.2s ease-in-out;
+}
+
+@keyframes pressDown {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .frameGroup {
   border-radius: var(--br-24);
@@ -632,18 +657,22 @@
 
 .joinUs {
   position: absolute;
-  height: calc(100% - 73px);
+  height: calc(100vh - 73px);
+  /* Full viewport height minus header */
   top: 73px;
-  bottom: 0px;
   left: 0px;
+  right: 0px;
+  /* Use right instead of width for better sizing */
   background-color: var(--color-whitesmoke);
-  width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 40px 20px;
+  padding: 40px 20px 60px 20px;
+  /* Extra bottom padding */
   text-align: center;
   font-size: 40px;
   color: var(--color-gray);
@@ -662,17 +691,173 @@
   width: 100%;
   position: relative;
   background-color: var(--color-white);
-  border: 1px solid var(--color-black);
   box-sizing: border-box;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  /* Fixed height to prevent page scroll */
+  overflow: hidden;
+  /* Prevent page-level scrolling */
   text-align: left;
   font-size: var(--font-size-16);
   color: var(--color-dimgray-500);
   font-family: var(--font-poppins);
 }
 
-/* Custom scrollbar for dropdown menus */
+/* Input field styling - FIXED to be fully interactive */
+.inputField {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--font-size-16);
+  color: var(--color-dimgray-500);
+  padding: 16px;
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  z-index: 2;
+  cursor: text;
+  position: relative;
+  /* Ensure the input is positioned properly */
+}
+
+.inputField::placeholder {
+  color: var(--color-dimgray-300);
+  font-size: var(--font-size-16);
+  font-weight: 400;
+}
+
+/* Focus states for input fields */
+.inputField:focus {
+  color: var(--color-dimgray-500);
+}
+
+/* Enhanced hover and focus states */
+.textField1:hover {
+  border-color: var(--color-tan);
+}
+
+.textField1:focus-within {
+  border-color: var(--color-tan);
+  box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.2);
+}
+
+/* Ensure proper styling when input has content */
+.textField1:has(.inputField:not(:placeholder-shown)) {
+  border-color: var(--color-tan);
+}
+
+/* Active state styling */
+.textField1:has(.inputField:focus) {
+  border-color: var(--color-tan);
+  box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.2);
+}
+
+/* Placeholder styling when input is empty */
+.inputField:placeholder-shown {
+  color: var(--color-dimgray-300);
+}
+
+/* Input field with content */
+.inputField:not(:placeholder-shown) {
+  color: var(--color-tan);
+}
+
+/* Ensure consistent font styling across all inputs */
+.inputField,
+.month span,
+.day span,
+.year span {
+  font-size: var(--font-size-16);
+  font-family: var(--font-dm-sans);
+}
+
+/* FIXED GENDER RADIO BUTTON STYLES */
+.genderOptionsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 55px;
+  width: 100%;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.genderOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 4px;
+  margin-bottom: 12px;
+}
+
+/* Radio button container */
+.radioButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer circle of radio button */
+.radioOuter {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* Inner circle (dot) of radio button */
+.radioInner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-tan);
+  transition: all 0.2s ease;
+}
+
+/* Hover state */
+.genderOption:hover .radioOuter {
+  border-color: var(--color-tan);
+}
+
+/* Selected state */
+.genderOption.genderSelected .radioOuter {
+  border-color: var(--color-tan);
+  background-color: white;
+}
+
+/* Gender label styling */
+.genderLabel {
+  font-size: var(--font-size-16);
+  color: var(--color-dimgray-500);
+  font-weight: 400;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.genderOption.genderSelected .genderLabel {
+  color: var(--color-dimgray-500);
+  font-weight: 400;
+}
+
+/* Remove old gender circle styles - they're replaced by radio button styles above */
+.genderCircle,
+.genderCircleInner {
+  display: none;
+}
+
+.headerNavParent {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
 .dropdownMenu::-webkit-scrollbar {
   width: 6px;
 }
@@ -680,7 +865,6 @@
 .dropdownMenu::-webkit-scrollbar-track {
   background: #CCCCCC;
   border-radius: 3px;
-  
 }
 
 .dropdownMenu::-webkit-scrollbar-thumb {
@@ -692,46 +876,80 @@
   background: var(--color-tan);
 }
 
-/* Media Queries for better responsiveness */
+.month span,
+.day span,
+.year span {
+  color: var(--color-dimgray-300);
+}
+
+.selectedValue {
+  color: var(--color-tan) !important;
+}
+
 @media (max-width: 768px) {
   .frameParent {
     padding: 10px;
     margin: 0 auto;
   }
-  
+
   .frameGroup,
   .frameWrapper {
     max-width: 100%;
     padding: 16px;
   }
-  
+
   .textFieldParent {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .joinUs1 {
     font-size: 32px;
     line-height: 1.2;
   }
-  
+
   .signUpAnd {
     font-size: 16px;
   }
-  
+
   .back {
     top: 26px;
     left: 78px;
   }
-  
+
   .outlineArrowsArrowLeft {
     top: 24px;
     left: 44px;
     cursor: pointer;
   }
-  
+
   /* Adjust dropdown menu height on mobile */
   .dropdownMenu {
     max-height: 150px;
+  }
+
+  /* Mobile responsiveness for gender options */
+  .genderOptionsContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .genderOption {
+    width: 100%;
+  }
+
+  .radioOuter {
+    width: 20px;
+    height: 20px;
+  }
+
+  .radioInner {
+    width: 8px;
+    height: 8px;
+  }
+
+  .genderLabel {
+    font-size: var(--font-size-16);
   }
 }

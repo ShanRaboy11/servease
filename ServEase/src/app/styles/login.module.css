@@ -13,13 +13,6 @@
   overflow: hidden;
 }
 
-.errorMessage {
-  position: absolute;
-  top: 569px;
-  left: 282px;
-  display: none;
-}
-
 .authwindow1 {
   position: absolute;
   top: 0px;
@@ -279,6 +272,7 @@
   font-size: var(--font-size-16);
   color: var(--color-dimgray-100);
   font-family: var(--font-poppins);
+  margin-top: -25px;
 }
 
 .buttontext {
@@ -440,4 +434,85 @@
   transform: scale(1.08);
   transition: transform 0.2s ease-in-out;
   box-shadow: 0 0 0 3px rgba(210, 180, 140, 0.2);
+}
+
+.buttoncontainer {
+  width: 454px;
+  position: relative;
+  border-radius: 40px;
+  background-color: var(--color-tan);
+  height: 64px;
+  overflow: hidden;
+  flex-shrink: 0;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.buttoncontainerActive {
+  opacity: 1 !important;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.clicked {
+  animation: pressDown 0.2s ease-in-out;
+}
+
+@keyframes pressDown {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 80px;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.errorbox {
+  width: 454px;
+  background-color: #ffe6e6;
+  border: 1px solid #ff4d4f;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  color: #d8000c;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  bottom: 72px;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+.errorMessage {
+  color: #d8000c;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
 }

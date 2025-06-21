@@ -12,6 +12,8 @@ const Login: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showError, setShowError] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
 
   const toggleRememberMe = () => {
@@ -28,15 +30,24 @@ const Login: NextPage = () => {
   };
 
   const handleLogin = () => {
-    if (!email || !password) {
-      setError("Please fill in all fields.");
-    } else if (!validateEmail(email)) {
-      setError("Invalid email address.");
-    } else {
-      setError("");
-      // proceed with login logic (api call, etc.)
-      console.log("Logging in with:", { email, password, rememberMeChecked });
-    }
+    setIsClicked(true);
+
+    setTimeout(() => {
+      setIsClicked(false);
+
+      if (!email || !password) {
+        setError("Please fill in all required fields.");
+        setShowError(true);
+      } else if (!validateEmail(email)) {
+        setError("Please enter a valid email address.");
+        setShowError(true);
+      } else {
+        setError("");
+        setShowError(false);
+        console.log("Logging in with:", { email, password, rememberMeChecked });
+        router.push("/signup");
+      }
+    }, 200);
   };
 
   return (
@@ -44,9 +55,7 @@ const Login: NextPage = () => {
       <div className={styles.login1}>
         <div className={styles.background} />
         <div className={styles.authwindow}>
-          <div className={styles.authwindow1}>
-            {error && <div className={styles.errorMessage}>ERROR: {error}</div>}
-          </div>
+          <div className={styles.authwindow1} />
           <div className={styles.authcontent}>
             <div className={styles.logincontent}>
               <div className={styles.navigationbar}>
@@ -62,6 +71,7 @@ const Login: NextPage = () => {
                   </div>
                 </div>
               </div>
+
               <div className={styles.title}>
                 <div className={styles.welcomeToServeaseContainer}>
                   <span>Welcome to serv</span>
@@ -72,6 +82,7 @@ const Login: NextPage = () => {
                   Please log in to access your account.
                 </div>
               </div>
+
               <div className={styles.userinputs}>
                 <div className={styles.email}>
                   <div className={styles.email1}>
@@ -92,6 +103,7 @@ const Login: NextPage = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className={styles.password}>
                   <div className={styles.password1}>
                     <div className={styles.emailAddress}>
@@ -120,6 +132,7 @@ const Login: NextPage = () => {
                       />
                     </div>
                   </div>
+
                   <div className={styles.action}>
                     <div
                       className={styles.rememberMe}
@@ -150,14 +163,23 @@ const Login: NextPage = () => {
                   </div>
                 </div>
               </div>
-              <div
-                className={`${styles.buttoncontainer} ${
-                  email && password ? styles.buttonActive : ""
-                }`}
-                onClick={handleLogin}
-              >
-                <div className={styles.buttontext}>
-                  <div className={styles.rememberMe1}>Log In</div>
+              <div className={styles.buttonSection}>
+                <div
+                  className={`${styles.errorbox} ${
+                    showError ? styles.visible : styles.hidden
+                  }`}
+                >
+                  {error}
+                </div>
+                <div
+                  className={`${styles.buttoncontainer} 
+                    ${email && password ? styles.buttoncontainerActive : ""} 
+                    ${isClicked ? styles.clicked : ""}`}
+                  onClick={handleLogin}
+                >
+                  <div className={styles.buttontext}>
+                    <div className={styles.rememberMe1}>Log In</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -169,7 +191,7 @@ const Login: NextPage = () => {
           height={32}
           sizes="100vw"
           alt=""
-          src="close.svg"
+          src="/close.svg"
         />
         <Image
           className={styles.authlogoIcon}
@@ -177,7 +199,7 @@ const Login: NextPage = () => {
           height={978}
           sizes="100vw"
           alt=""
-          src="authLogo.svg"
+          src="/authLogo.svg"
         />
       </div>
     </div>
