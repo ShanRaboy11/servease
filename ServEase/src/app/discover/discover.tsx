@@ -61,7 +61,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
@@ -114,7 +114,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
@@ -132,7 +132,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
@@ -149,7 +149,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
@@ -164,7 +164,7 @@ const discoverPage: NextPage = () => {
                 height={13.5}
                 sizes="100vw"
                 alt=""
-                src="Icon.svg"
+                src="Chevron right.svg"
               />
             </div>
           </div>
