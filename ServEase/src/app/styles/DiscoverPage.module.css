@@ -1,6 +1,16 @@
 .serviceFacility {
   	margin: 0;
 }
+.servicesGrid {
+  position: absolute;
+  top: -47px; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(2, 700px);
+  gap: 40px 40px; 
+  z-index: 1;
+}
 .serviceFacilityAppointmentContainer {
   	position: absolute;
   	top: -47px;

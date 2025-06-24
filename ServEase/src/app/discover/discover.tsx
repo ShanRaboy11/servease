@@ -5,7 +5,6 @@ import { useCallback } from "react";
 import Image from "next/image";
 import styles from "../styles/DiscoverPage.module.css";
 
-
 const DiscoverPage: NextPage = () => {
   const onLinkContainerClick = useCallback(() => {
     console.log("Link clicked!");
@@ -33,7 +32,7 @@ const DiscoverPage: NextPage = () => {
           <div className={styles.home}>Home</div>
           <div className={styles.discover}>Discover</div>
           <div className={styles.createAnAccount}>Create an Account</div>
-          
+
           <div className={styles.lineParent}>
             <div className={styles.lineDiv} />
             <div className={styles.servease2025}>
@@ -49,7 +48,119 @@ const DiscoverPage: NextPage = () => {
             src="/Servease Logo (Album Cover) (3) 2.png"
           />
         </div>
+
         <div className={styles.whatweofferbox} />
+
+        {/* SERVICES GRID WRAPPER */}
+        <div className={styles.servicesGrid}>
+          <div className={styles.background1}>
+            <div className={styles.link} onClick={onLinkContainerClick}>
+              <div className={styles.personalBeautyAnd}>
+                Personal Beauty and Care
+              </div>
+              <div className={styles.chevronRight}>
+                <Image
+                  className={styles.icon}
+                  width={6.8}
+                  height={13.5}
+                  sizes="100vw"
+                  alt=""
+                  src="Chevron right.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.background2}>
+            <div className={styles.link} onClick={onLinkContainerClick}>
+              <div className={styles.healthAndMedical}>
+                Health and Medical Services
+              </div>
+              <div className={styles.chevronRight}>
+                <Image
+                  className={styles.icon}
+                  width={6.8}
+                  height={13.5}
+                  sizes="100vw"
+                  alt=""
+                  src="Chevron right.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.background3}>
+            <div className={styles.link} onClick={onLinkContainerClick}>
+              <div className={styles.fitnessAndSports}>Fitness and Sports</div>
+              <div className={styles.chevronRight}>
+                <Image
+                  className={styles.icon}
+                  width={6.8}
+                  height={13.5}
+                  sizes="100vw"
+                  alt=""
+                  src="Chevron right.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.background4}>
+            <div className={styles.link} onClick={onLinkContainerClick}>
+              <div className={styles.educationAndTutoring}>
+                Education and Tutoring
+              </div>
+              <div className={styles.chevronRight}>
+                <Image
+                  className={styles.icon}
+                  width={6.8}
+                  height={13.5}
+                  sizes="100vw"
+                  alt=""
+                  src="Chevron right.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.background5}>
+            <div className={styles.link} onClick={onLinkContainerClick}>
+              <div className={styles.repairAndTechnical}>
+                Repair and Technical Services
+              </div>
+              <div className={styles.chevronRight}>
+                <Image
+                  className={styles.icon}
+                  width={6.8}
+                  height={13.5}
+                  sizes="100vw"
+                  alt=""
+                  src="Chevron right.svg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.background6}>
+            <div className={styles.link} onClick={onLinkContainerClick}>
+              <div className={styles.foodAndBeverages}>
+                Food and Beverages
+              </div>
+              <div className={styles.chevronRight}>
+                <Image
+                  className={styles.icon}
+                  width={6.8}
+                  height={13.5}
+                  sizes="100vw"
+                  alt=""
+                  src="Chevron right.svg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Miscellaneous Box */}
         <div className={styles.background}>
           <div className={styles.link} onClick={onLinkContainerClick}>
             <div className={styles.miscellaneous}>Miscellaneous</div>
@@ -65,112 +176,16 @@ const DiscoverPage: NextPage = () => {
             </div>
           </div>
         </div>
+
         <b className={styles.ourServices}>
           <span>{`Our `}</span>
           <span className={styles.services}>Services</span>
         </b>
-        <div className={styles.background1}>
-          <div className={styles.link} onClick={onLinkContainerClick}>
-            <div className={styles.personalBeautyAnd}>
-              Personal Beauty and Care
-            </div>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon}
-                width={6.8}
-                height={13.5}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.background2}>
-          <div className={styles.link} onClick={onLinkContainerClick}>
-            <div className={styles.healthAndMedical}>
-              Health and Medical Services
-            </div>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon}
-                width={6.8}
-                height={13.5}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.background3}>
-          <div className={styles.link} onClick={onLinkContainerClick}>
-            <div className={styles.fitnessAndSports}>Fitness and Sports</div>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon}
-                width={6.8}
-                height={13.5}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.background4}>
-          <div className={styles.link} onClick={onLinkContainerClick}>
-            <div className={styles.educationAndTutoring}>
-              Education and Tutoring
-            </div>
-            <div className={styles.svg} />
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon}
-                width={6.8}
-                height={13.5}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.background5}>
-          <div className={styles.link} onClick={onLinkContainerClick}>
-            <div className={styles.repairAndTechnical}>
-              Repair and Technical Services
-            </div>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon}
-                width={6.8}
-                height={13.5}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.background6}>
-          <div className={styles.link} onClick={onLinkContainerClick}>
-            <div className={styles.foodAndBeverages}>Food and Beverages</div>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon}
-                width={6.8}
-                height={13.5}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
+
         <div className={styles.heroImage}>
           <div className={styles.image10} />
         </div>
+
         <div className={styles.navigation}>
           <Image
             className={styles.serveaseLogoAlbumCover31}
@@ -197,6 +212,7 @@ const DiscoverPage: NextPage = () => {
             <div className={styles.star} />
           </div>
         </div>
+
         <div className={styles.form}>
           <div className={styles.verticalborder}>
             <div className={styles.link7}>
