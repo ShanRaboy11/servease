@@ -6,9 +6,8 @@ import Image from "next/image";
 import styles from "../styles/DiscoverPage.module.css";
 
 
-const discoverPage: NextPage = () => {
+const DiscoverPage: NextPage = () => {
   const onLinkContainerClick = useCallback(() => {
-    // Add your code here
     console.log("Link clicked!");
   }, []);
 
@@ -23,7 +22,7 @@ const discoverPage: NextPage = () => {
           </div>
           <b className={styles.contactUs}>Contact Us</b>
           <div className={styles.supportserveasecom}>support@servease.com</div>
-          <div className={styles.contactNumber}>// contact number</div>
+          <div className={styles.contactNumber}>contact number</div>
           <b className={styles.support}>Support</b>
           <div className={styles.faqs}>FAQs</div>
           <div className={styles.privacyPolicy}>Privacy Policy</div>
@@ -234,4 +233,4 @@ const discoverPage: NextPage = () => {
   );
 };
 
-export default discoverPage;
+export default DiscoverPage;
