@@ -1,13 +1,18 @@
 "use client";
 import type { NextPage } from "next";
+import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/facility-details.module.css";
 
 const FacilityDetails: NextPage = () => {
+  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isPopping, setIsPopping] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [active, setActive] = useState(1);
 
   const services1 = [
     "Service 1",
@@ -17,9 +22,15 @@ const FacilityDetails: NextPage = () => {
     "Service 5",
     "Service 6",
   ];
-
-  const [isLiked, setIsLiked] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const filters = [
+    { label: "All", hasStar: false },
+    { label: "5 (3.2K)", hasStar: true },
+    { label: "4 (1.5K)", hasStar: true },
+    { label: "3 (1.37K)", hasStar: true },
+    { label: "2 (1.12K)", hasStar: true },
+    { label: "1 (1.01K)", hasStar: true },
+    { label: "With Media", hasStar: false },
+  ];
 
   const handleClick = () => {
     setIsAnimating(true);
@@ -112,7 +123,15 @@ const FacilityDetails: NextPage = () => {
                 </div>
                 <div className={styles.label}>Chat</div>
               </div>
-              <div className={styles.wrapper2}>
+              <div
+                className={styles.wrapper2}
+                onClick={() => {
+                  const section = document.getElementById("location");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 <div className={styles.circle}>
                   <Image
                     src="map square.svg"
@@ -123,7 +142,15 @@ const FacilityDetails: NextPage = () => {
                 </div>
                 <div className={styles.label}>Map</div>
               </div>
-              <div className={styles.wrapper2}>
+              <div
+                className={styles.wrapper2}
+                onClick={() => {
+                  const section = document.getElementById("ratings");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 <div className={styles.circle}>
                   <Image
                     src="review square.svg"
@@ -348,73 +375,79 @@ const FacilityDetails: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.whatweofferbox}>
-          <div className={styles.location}>
-            <b className={styles.location1}>Location</b>
-            <div className={styles.paraContentWrapper1}>
-              <div className={styles.paraContent6}>
-                <div className={styles.nBacalsoAve}>
-                  N. Bacalso Ave., Cebu City
+        <section id="location">
+          <div className={styles.whatweofferbox}>
+            <div className={styles.location}>
+              <b className={styles.location1}>Location</b>
+              <div className={styles.paraContentWrapper1}>
+                <div className={styles.paraContent6}>
+                  <div className={styles.nBacalsoAve}>
+                    N. Bacalso Ave., Cebu City
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.paraContent14} />
-            <div className={styles.map}>
-              <Image
-                className={styles.buttonPlusIcon}
-                width={40}
-                height={40}
-                sizes="100vw"
-                alt=""
-                src="Button_ plus.svg"
-              />
-              <Image
-                className={styles.buttonMinusIcon}
-                width={40}
-                height={40}
-                sizes="100vw"
-                alt=""
-                src="Button_ minus.svg"
-              />
-              <Image
-                className={styles.locationOnIcon}
-                width={90}
-                height={90}
-                sizes="100vw"
-                alt=""
-                src="location_on.svg"
-              />
-              <Image
-                className={styles.bgIcon}
-                width={40}
-                height={40}
-                sizes="100vw"
-                alt=""
-                src="BG.svg"
-              />
-              <div className={styles.logo}>logo</div>
-            </div>
-            <div className={styles.paraContent14} />
-            <div className={styles.button13}>
-              <div className={styles.star} />
-              <div className={styles.link}>
-                <div className={styles.bookNow1}>Book Now</div>
+              <div className={styles.paraContent14} />
+              <div className={styles.map}>
                 <Image
-                  className={styles.svgIcon}
-                  width={14}
-                  height={14}
+                  className={styles.buttonPlusIcon}
+                  width={40}
+                  height={40}
                   sizes="100vw"
                   alt=""
-                  src="SVG.svg"
+                  src="Button_ plus.svg"
                 />
+                <Image
+                  className={styles.buttonMinusIcon}
+                  width={40}
+                  height={40}
+                  sizes="100vw"
+                  alt=""
+                  src="Button_ minus.svg"
+                />
+                <Image
+                  className={styles.locationOnIcon}
+                  width={90}
+                  height={90}
+                  sizes="100vw"
+                  alt=""
+                  src="location_on.svg"
+                />
+                <Image
+                  className={styles.bgIcon}
+                  width={40}
+                  height={40}
+                  sizes="100vw"
+                  alt=""
+                  src="BG.svg"
+                />
+                <div className={styles.logo}>logo</div>
               </div>
-              <div className={styles.star} />
+              <div className={styles.paraContent14} />
+              <div className={styles.button13}>
+                <div className={styles.star} />
+                <div className={styles.link}>
+                  <div className={styles.bookNow1}>Book Now</div>
+                  <Image
+                    className={styles.svgIcon}
+                    width={14}
+                    height={14}
+                    sizes="100vw"
+                    alt=""
+                    src="SVG.svg"
+                  />
+                </div>
+                <div className={styles.star} />
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
         <div className={styles.location2}>
-          <b className={styles.serviceRatings}>Service Ratings</b>
+          <section id="ratings">
+            <b className={styles.serviceRatings}>Service Ratings</b>
+          </section>
           <div className={styles.paraContent14} />
+
           <div className={styles.group}>
             <div className={styles.parent2}>
               <b className={styles.b8}>4.0</b>
@@ -432,84 +465,27 @@ const FacilityDetails: NextPage = () => {
               <div className={styles.paraContent17}>
                 <b className={styles.workSchedule}>8.2K Reviews</b>
               </div>
-              <div className={styles.buttonParent3}>
-                <div className={styles.button14}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>All</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button15}>
-                  <div className={styles.star} />
-                  <Image
-                    className={styles.buttonChild}
-                    width={20}
-                    height={20}
-                    sizes="100vw"
-                    alt=""
-                    src="Star 3.svg"
-                  />
-                  <div className={styles.k}>5 (3.2K)</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button15}>
-                  <div className={styles.star} />
-                  <Image
-                    className={styles.buttonChild}
-                    width={20}
-                    height={20}
-                    sizes="100vw"
-                    alt=""
-                    src="Star 3.svg"
-                  />
-                  <div className={styles.k}>4 (1.5K)</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button15}>
-                  <div className={styles.star} />
-                  <Image
-                    className={styles.buttonChild}
-                    width={20}
-                    height={20}
-                    sizes="100vw"
-                    alt=""
-                    src="Star 3.svg"
-                  />
-                  <div className={styles.k2}>3 (1.37K)</div>
-                  <div className={styles.star} />
-                </div>
-              </div>
-              <div className={styles.buttonParent3}>
-                <div className={styles.button15}>
-                  <div className={styles.star} />
-                  <Image
-                    className={styles.buttonChild}
-                    width={20}
-                    height={20}
-                    sizes="100vw"
-                    alt=""
-                    src="Star 3.svg"
-                  />
-                  <div className={styles.k}>2 (1.12K)</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button15}>
-                  <div className={styles.star} />
-                  <Image
-                    className={styles.buttonChild}
-                    width={20}
-                    height={20}
-                    sizes="100vw"
-                    alt=""
-                    src="Star 3.svg"
-                  />
-                  <div className={styles.k}>1 (1.01K)</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button20}>
-                  <div className={styles.star} />
-                  <div className={styles.favorite11k}>With Media</div>
-                  <div className={styles.star} />
-                </div>
+              <div className={styles.grid}>
+                {filters.map((filter, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.buttonstar} ${
+                      activeFilter === filter.label ? styles.active : ""
+                    }`}
+                    onClick={() => setActiveFilter(filter.label)}
+                  >
+                    {filter.hasStar && (
+                      <Image
+                        src="/Star 3.svg"
+                        alt="star"
+                        width={18}
+                        height={18}
+                        className={styles.iconstar}
+                      />
+                    )}
+                    <span>{filter.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -717,41 +693,29 @@ const FacilityDetails: NextPage = () => {
           <div className={styles.locationInner2}>
             <div className={styles.buttonParent3}>
               <div className={styles.button24}>
-                <div className={styles.chevronRight}>
+                <div className={styles.chevronLeft}>
                   <Image
                     className={styles.icon4}
                     width={5}
                     height={10}
                     sizes="100vw"
                     alt=""
-                    src="Chevron left.svg"
+                    src="Chevron right.svg"
                   />
                 </div>
               </div>
-              <div className={styles.button25}>
-                <div className={styles.star} />
-                <b className={styles.b3}>1</b>
-                <div className={styles.star} />
-              </div>
-              <div className={styles.button26}>
-                <div className={styles.star} />
-                <b className={styles.b3}>2</b>
-                <div className={styles.star} />
-              </div>
-              <div className={styles.button26}>
-                <div className={styles.star} />
-                <b className={styles.b3}>3</b>
-                <div className={styles.star} />
-              </div>
-              <div className={styles.button26}>
-                <div className={styles.star} />
-                <b className={styles.b3}>4</b>
-                <div className={styles.star} />
-              </div>
-              <div className={styles.button26}>
-                <div className={styles.star} />
-                <b className={styles.b3}>5</b>
-                <div className={styles.star} />
+              <div className={styles.circlewrapper}>
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <div
+                    key={num}
+                    className={`${styles.circle} ${
+                      active === num ? styles.circleactive : ""
+                    }`}
+                    onClick={() => setActive(num)}
+                  >
+                    <b>{num}</b>
+                  </div>
+                ))}
               </div>
               <div className={styles.buttonWrapper1}>
                 <div className={styles.button30}>
@@ -895,7 +859,7 @@ const FacilityDetails: NextPage = () => {
             <div className={styles.customerQuote1}>
               <div className={styles.customerQuoteItem} />
               <div className={styles.avatarContainer}>
-                <div className={styles.avatar4}>
+                <div className={styles.avatar}>
                   <div className={styles.avatar1} />
                   <div className={styles.serviceFacilityNameParent}>
                     <div className={styles.serviceFacilityName}>
@@ -981,10 +945,19 @@ const FacilityDetails: NextPage = () => {
           <div className={styles.termsConditions}>{`Terms & Conditions`}</div>
           <div className={styles.aboutUs}>About Us</div>
           <b className={styles.quickLinks}>Quick Links</b>
-          <b className={styles.servease1}>servease</b>
-          <div className={styles.home1}>Home</div>
+          <div
+            className={styles.servease1}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            <span className={styles.serv}>serv</span>
+            <b>ease</b>
+          </div>
+          <div className={styles.home1} onClick={() => router.push("/home")}>
+            Home
+          </div>
           <div className={styles.discover1}>Discover</div>
-          <div className={styles.createAnAccount}>Create an Account</div>
           <div className={styles.lineParent}>
             <div className={styles.lineDiv} />
             <div className={styles.servease2025}>
@@ -998,6 +971,9 @@ const FacilityDetails: NextPage = () => {
             sizes="100vw"
             alt=""
             src="/landingLogo.svg"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           />
         </div>
       </div>
