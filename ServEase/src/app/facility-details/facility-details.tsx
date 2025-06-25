@@ -1,9 +1,34 @@
+"use client";
 import type { NextPage } from "next";
 import { useCallback } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/facility-details.module.css";
 
 const FacilityDetails: NextPage = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isPopping, setIsPopping] = useState(false);
+
+  const services1 = [
+    "Service 1",
+    "Service 2",
+    "Service 3",
+    "Service 4",
+    "Service 5",
+    "Service 6",
+  ];
+
+  const [isLiked, setIsLiked] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsLiked((prev) => !prev);
+      setIsAnimating(false);
+    }, 100);
+  };
+
   return (
     <div className={styles.facilityDetailsParent}>
       <div className={styles.facilityDetails}>
@@ -74,23 +99,15 @@ const FacilityDetails: NextPage = () => {
             </div>
             <div className={styles.paraContent} />
             <div className={styles.groupParent}>
-              <div
-                className={styles.frameChild}
-                //width 60
-                /*COmpany Logo*/
-              ></div>
-              <div
-                className={styles.dividerIcon}
-                //width 1, height 100, size 100vw
-                /*Divider*/
-              ></div>
+              <div className={styles.frameChild}></div>
+              <div className={styles.dividerIcon}></div>
               <div className={styles.wrapper2}>
                 <div className={styles.circle}>
                   <Image
                     src="message square.svg"
                     alt="Chat"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                   />
                 </div>
                 <div className={styles.label}>Chat</div>
@@ -100,8 +117,8 @@ const FacilityDetails: NextPage = () => {
                   <Image
                     src="map square.svg"
                     alt="Chat"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                   />
                 </div>
                 <div className={styles.label}>Map</div>
@@ -111,8 +128,8 @@ const FacilityDetails: NextPage = () => {
                   <Image
                     src="review square.svg"
                     alt="Chat"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                   />
                 </div>
                 <div className={styles.label}>Review</div>
@@ -272,38 +289,19 @@ const FacilityDetails: NextPage = () => {
                 </div>
               </div>
               <div className={styles.buttonContainer}>
-                <div className={styles.button3}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>Service 1</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button1}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>Service 2</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button1}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>Service 3</div>
-                  <div className={styles.star} />
-                </div>
-              </div>
-              <div className={styles.buttonParent1}>
-                <div className={styles.button1}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>Service 4</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button1}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>Service 5</div>
-                  <div className={styles.star} />
-                </div>
-                <div className={styles.button1}>
-                  <div className={styles.star} />
-                  <div className={styles.mondayFriday}>Service 6</div>
-                  <div className={styles.star} />
-                </div>
+                {services1.map((service, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.button3} ${
+                      activeIndex === index ? styles.active : styles.inactive
+                    }`}
+                    onClick={() => setActiveIndex(index)}
+                  >
+                    <div className={styles.star} />
+                    <div className={styles.mondayFriday}>{service}</div>
+                    <div className={styles.star} />
+                  </div>
+                ))}
               </div>
             </div>
             <Image
@@ -315,22 +313,34 @@ const FacilityDetails: NextPage = () => {
               src="Divider.svg"
             />
             <div className={styles.buttonParent2}>
-              <div className={styles.button9}>
+              <div className={styles.button9} onClick={handleClick}>
                 <div className={styles.heart}>
                   <Image
-                    className={styles.icon2}
+                    src="/Heart.svg"
+                    alt="heart outline"
                     width={30.5}
                     height={26.6}
-                    sizes="100vw"
-                    alt=""
-                    src="Heart.svg"
+                    className={`${styles.icon2} ${
+                      !isLiked && !isAnimating ? styles.iconVisible : ""
+                    }`}
+                  />
+                  <Image
+                    src="/Heart1.svg"
+                    alt="heart filled"
+                    width={30.5}
+                    height={26.6}
+                    className={`${styles.icon2} ${
+                      isLiked && !isAnimating ? styles.iconVisible : ""
+                    }`}
                   />
                 </div>
-                <div className={styles.favorite11k}>Favorite (1.1K)</div>
+                <div className={styles.favorite11k}>
+                  Favorite {isLiked ? "(1.1K)" : ""}
+                </div>
                 <div className={styles.star} />
                 <div className={styles.star} />
               </div>
-              <div className={styles.button3}>
+              <div className={styles.button4}>
                 <div className={styles.star} />
                 <div className={styles.mondayFriday}>Book Now</div>
                 <div className={styles.star} />

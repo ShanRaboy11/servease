@@ -12,12 +12,19 @@
 .servease,
 .home,
 .contactUs,
-.avatar {
+.avatar,
+.button11,
+.wrapper2,
+.button3,
+.button4,
+.icon2 {
   cursor: pointer;
 }
 
 .serveaseLogoAlbumCover3:hover,
-.avatar:hover {
+.avatar:hover,
+.wrapper2:hover,
+.heart:hover {
   transform: scale(1.1);
 }
 
@@ -112,6 +119,7 @@
   position: relative;
   margin: 0 auto;
   margin-top: 1.5rem;
+  z-index: 100;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
   background-color: var(--color-white);
@@ -128,6 +136,24 @@
   text-align: center;
   font-size: var(--font-size-18);
   color: #a68465;
+  animation: bounceInTop 0.8s ease forwards;
+}
+
+@keyframes bounceInTop {
+  0% {
+    opacity: 0;
+    transform: translate(0%, -80px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0%, 15px);
+  }
+  80% {
+    transform: translate(0%, -5px);
+  }
+  100% {
+    transform: translate(0%, 0);
+  }
 }
 .image7 {
   align-self: stretch;
@@ -240,6 +266,7 @@
   padding: var(--padding-8) 16px;
   z-index: 1;
   font-size: var(--font-size-20);
+  cursor: default;
 }
 .groupChild {
   position: absolute;
@@ -423,6 +450,7 @@
   padding: var(--padding-12);
   box-sizing: border-box;
   gap: var(--gap-8);
+  cursor: default;
 }
 .paraContent7 {
   display: flex;
@@ -502,16 +530,60 @@
   box-sizing: border-box;
   gap: var(--gap-8);
   color: var(--color-linen);
+  transition: transform 0.3s ease, background-position 0.5s ease,
+    opacity 0.3s ease;
 }
-.buttonContainer {
+.button4 {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  width: 190px;
+  height: 40px;
+  border-radius: var(--br-4);
+  border: 1px solid transparent;
+  background: linear-gradient(120deg, #a68465, #c3a68c, #a68465);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-12);
+  gap: var(--gap-8);
+
+  color: var(--color-snow);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-position 0.5s ease,
+    opacity 0.3s ease;
+}
+
+.button4:hover,
+.button3:hover {
+  background-position: 100% 50%;
+  transform: scale(1.05);
+}
+
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0.5;
+}
+
+.buttonContainer {
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-20);
   z-index: 16;
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
+
 .buttonParent1 {
   display: flex;
   flex-direction: row;
@@ -538,6 +610,15 @@
   height: 1px;
   flex-shrink: 0;
 }
+.heart {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
 .icon2 {
   position: absolute;
   height: 76%;
@@ -547,16 +628,22 @@
   bottom: 11.51%;
   left: 6.45%;
   max-width: 100%;
-  overflow: hidden;
   max-height: 100%;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0;
+  transform: scale(0.8);
 }
-.heart {
-  width: 35px;
-  position: relative;
-  height: 35px;
-  overflow: hidden;
-  flex-shrink: 0;
+
+.iconVisible {
+  opacity: 1;
+  transform: scale(1);
 }
+
+.favorite11k {
+  margin-left: 1px;
+  font-size: 14px;
+}
+
 .favorite11k {
   width: 120px;
   position: relative;
@@ -645,6 +732,12 @@
   background-color: var(--color-tan-300);
   width: 45px;
   height: 45px;
+  transition: all 0.3s ease;
+}
+.button11:hover {
+  background-color: #a68465;
+  transition: all 0.3s ease;
+  transform: scale(1.1);
 }
 .buttonWrapper {
   position: relative;
@@ -1429,12 +1522,13 @@
   flex-direction: column;
   align-items: center;
   font-family: sans-serif;
+  transition: transform 0.3s ease;
 }
 
 .circle {
-  width: 64px;
-  height: 64px;
-  background-color: #eae4d8; /* beige-ish */
+  width: 50px;
+  height: 50px;
+  background-color: #eae4d8;
   border-radius: 50%;
   display: flex;
   align-items: center;
