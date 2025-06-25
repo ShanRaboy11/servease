@@ -27,19 +27,50 @@ const FacilityDetails: NextPage = () => {
             <div className={styles.contactUs}>Contact Us</div>
           </div>
           <div className={styles.navigationChild} />
-          <div className={styles.button}>
-            <div className={styles.star} />
-            <div className={styles.signIn}>Sign in</div>
-            <div className={styles.star} />
-          </div>
+          <Image
+            className={styles.avatar}
+            width={40}
+            height={40}
+            sizes="100vw"
+            alt=""
+            src="/avatar.svg"
+          />
         </div>
         <div className={styles.frameParent}>
           <div className={styles.image7Parent}>
             <div className={styles.image7} />
             <div className={styles.image7Group}>
+              <div className={styles.buttonFrame}>
+                <div className={styles.button11}>
+                  <div className={styles.chevronLeft}>
+                    <Image
+                      className={styles.icon4}
+                      width={5}
+                      height={10}
+                      sizes="100vw"
+                      alt=""
+                      src="Chevron left.svg"
+                    />
+                  </div>
+                </div>
+              </div>
               <div className={styles.image71} />
               <div className={styles.image71} />
               <div className={styles.image71} />
+              <div className={styles.buttonWrapper}>
+                <div className={styles.button11}>
+                  <div className={styles.chevronRight}>
+                    <Image
+                      className={styles.icon3}
+                      width={50}
+                      height={10}
+                      sizes="100vw"
+                      alt=""
+                      src="Chevron right.svg"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={styles.paraContent} />
             <div className={styles.groupParent}>
@@ -53,21 +84,39 @@ const FacilityDetails: NextPage = () => {
                 //width 1, height 100, size 100vw
                 /*Divider*/
               ></div>
-              <div
-                className={styles.frameItem}
-                //width 80, height 71, size 100vw
-                /*Chat Logo*/
-              ></div>
-              <div
-                className={styles.frameItem}
-                //width 80, height 71, size 100vw
-                /*Map Logo*/
-              ></div>
-              <div
-                className={styles.frameItem}
-                //width 80, height 71, size 100vw
-                /*Review Logo*/
-              ></div>
+              <div className={styles.wrapper2}>
+                <div className={styles.circle}>
+                  <Image
+                    src="message square.svg"
+                    alt="Chat"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <div className={styles.label}>Chat</div>
+              </div>
+              <div className={styles.wrapper2}>
+                <div className={styles.circle}>
+                  <Image
+                    src="map square.svg"
+                    alt="Chat"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <div className={styles.label}>Map</div>
+              </div>
+              <div className={styles.wrapper2}>
+                <div className={styles.circle}>
+                  <Image
+                    src="review square.svg"
+                    alt="Chat"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <div className={styles.label}>Review</div>
+              </div>
             </div>
           </div>
           <div className={styles.frameGroup}>
@@ -289,34 +338,6 @@ const FacilityDetails: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.buttonWrapper}>
-          <div className={styles.button11}>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon3}
-                width={5}
-                height={10}
-                sizes="100vw"
-                alt=""
-                src="Chevron right.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.buttonFrame}>
-          <div className={styles.button11}>
-            <div className={styles.chevronRight}>
-              <Image
-                className={styles.icon4}
-                width={5}
-                height={10}
-                sizes="100vw"
-                alt=""
-                src="Chevron left.svg"
-              />
-            </div>
-          </div>
-        </div>
         <div className={styles.whatweofferbox}>
           <div className={styles.location}>
             <b className={styles.location1}>Location</b>
@@ -330,20 +351,12 @@ const FacilityDetails: NextPage = () => {
             <div className={styles.paraContent14} />
             <div className={styles.map}>
               <Image
-                className={styles.mapIcon}
-                width={1178}
-                height={400}
-                sizes="100vw"
-                alt=""
-                src="Map.svg"
-              />
-              <Image
                 className={styles.buttonPlusIcon}
                 width={40}
                 height={40}
                 sizes="100vw"
                 alt=""
-                src="Button: plus.svg"
+                src="Button_ plus.svg"
               />
               <Image
                 className={styles.buttonMinusIcon}
@@ -351,7 +364,7 @@ const FacilityDetails: NextPage = () => {
                 height={40}
                 sizes="100vw"
                 alt=""
-                src="Button: minus.svg"
+                src="Button_ minus.svg"
               />
               <Image
                 className={styles.locationOnIcon}
@@ -393,13 +406,17 @@ const FacilityDetails: NextPage = () => {
           <b className={styles.serviceRatings}>Service Ratings</b>
           <div className={styles.paraContent14} />
           <div className={styles.group}>
+            <div className={styles.parent2}>
+              <b className={styles.b8}>4.0</b>
+              <div className={styles.outOf5}>Out of 5</div>
+            </div>
             <Image
               className={styles.icon5}
               width={160}
               height={160}
               sizes="100vw"
               alt=""
-              src="75%.svg"
+              src="75.svg"
             />
             <div className={styles.paraContentGroup}>
               <div className={styles.paraContent17}>
@@ -697,7 +714,7 @@ const FacilityDetails: NextPage = () => {
                     height={10}
                     sizes="100vw"
                     alt=""
-                    src="Chevron right.svg"
+                    src="Chevron left.svg"
                   />
                 </div>
               </div>
@@ -735,7 +752,7 @@ const FacilityDetails: NextPage = () => {
                       height={10}
                       sizes="100vw"
                       alt=""
-                      src="Chevron left.svg"
+                      src="Chevron right.svg"
                     />
                   </div>
                 </div>
@@ -743,10 +760,7 @@ const FacilityDetails: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.parent2}>
-          <b className={styles.b8}>4.0</b>
-          <div className={styles.outOf5}>Out of 5</div>
-        </div>
+
         <div className={styles.facilityDetailsChild} />
         <div className={styles.relatedservicesbox}>
           <b className={styles.relatedServices}>
@@ -929,9 +943,9 @@ const FacilityDetails: NextPage = () => {
                 <div className={styles.button31}>
                   <div className={styles.chevronRight4}>
                     <Image
-                      className={styles.icon3}
-                      width={7.5}
-                      height={15}
+                      className={styles.icon8}
+                      width={30}
+                      height={30}
                       sizes="100vw"
                       alt=""
                       src="Chevron right.svg"
