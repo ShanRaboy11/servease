@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { type SignUpWithPasswordCredentials } from '@supabase/supabase-js';
 import { createClient } from '../utils/supabase/server';
 
-export async function clientLoginCredentials(formData: FormData): Promise<void> {
+export async function clientLoginCredentials(formData: FormData): Promise<{ success: boolean; error?: string }> {
   console.log("--- SIGNUP SERVER ACTION RUNNING ---");
   
   const supabase = await createClient();
@@ -13,10 +13,10 @@ export async function clientLoginCredentials(formData: FormData): Promise<void> 
   const password = formData.get('password') as string;
 
   if (!email || !password) {
-    return redirect('/your-signup-page-url?message=Email and password are required.');
+    return { success: false, error: 'Email and password are required.' };
   }
   if (password.length < 8) {
-    return redirect('/your-signup-page-url?message=Password must be at least 8 characters.');
+    return { success: false, error: 'Password must be at least 8 characters.' };
   }
 
   const credentials: SignUpWithPasswordCredentials = {
@@ -28,7 +28,7 @@ export async function clientLoginCredentials(formData: FormData): Promise<void> 
 
   if (error) {
     console.error('--- SUPABASE SIGNUP ERROR ---', error.message);
-    return redirect(`/your-signup-page-url?message=Could not create account. ${encodeURIComponent(error.message)}`);
+    return { success: false, error: `Could not create account: ${error.message}` };
   }
 
   if (data.user) {
@@ -39,4 +39,5 @@ export async function clientLoginCredentials(formData: FormData): Promise<void> 
 
 
   console.log("SUCCESS! User account created. Redirecting to profile setup.");
+  return { success: true };
 }

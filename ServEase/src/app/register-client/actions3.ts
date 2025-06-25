@@ -3,7 +3,7 @@
 import { createClient } from '../utils/supabase/server'; 
 import { redirect } from 'next/navigation';
 
-export async function addContactAndCompleteProfile(formData: FormData): Promise<void> {
+export async function addContactAndCompleteProfile(formData: FormData):  Promise<{ success: boolean; error?: string, redirectPath?: string }> {
  console.log("--- ADD CONTACT & COMPLETE PROFILE ACTION ---");
 
   const supabase = await createClient();
@@ -34,7 +34,6 @@ export async function addContactAndCompleteProfile(formData: FormData): Promise<
 
   if (fetchError || !initialProfile) {
     console.error('Could not find initial profile for user or fetch error:', fetchError);
-    return redirect('/register-client?error=initial_profile_not_found'); 
   }
 
   console.log("Found initial profile data:", initialProfile);
@@ -71,5 +70,5 @@ export async function addContactAndCompleteProfile(formData: FormData): Promise<
   }
 
   console.log("SUCCESS! User registration fully completed for:", user.id);
-  redirect('/login'); 
+  return { success: true, redirectPath: '/login' };
 }

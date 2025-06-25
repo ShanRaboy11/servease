@@ -13,7 +13,7 @@ interface ProfileData {
   gender?: string;
 }
 
-export async function profile(formData: FormData): Promise<void> {
+export async function profile(formData: FormData):  Promise<{ success: boolean; error?: string, redirectPath?: string }> {
   console.log("--- PROFILE SERVER ACTION RUNNING ---");
 
   const supabase = await createClient();
@@ -82,4 +82,5 @@ export async function profile(formData: FormData): Promise<void> {
   }
 
   console.log("SUCCESS! Profile created for user:", user.id);
+  return { success: true, redirectPath: '/login' };
 }
