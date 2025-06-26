@@ -1,45 +1,38 @@
+// app/category/[specific_category]/actions.ts
+
 'use server';
 
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
-
-// Your type should match the columns in your Supabase table
-type ServiceProvider = {
-  id: number;
-  name: string;
-  location: string;
-  rating: number;
-  image_url: string;
-  service_icon_url: string;
-  Category: string; // e.g., 'Personal Care & Beauty'
-  specific_category: string; // e.g., 'Barbershops'
-};
+import type { ServiceProvider } from '../../lib//supabase/types'; // Adjust path if needed
 
 /**
- * Fetches providers based on the 'Specific Category' column.
- * @param specificCategory - The value to match in the 'Specific Category' column.
+ * Fetches providers based on the 'specific_category' column.
+ * This function now explicitly promises to return the SHARED ServiceProvider type.
  */
 export async function getProvidersBySpecificCategory(specificCategory: string): Promise<{
-  providers: ServiceProvider[];
+  providers: ServiceProvider[]; // <-- This now uses the imported, correct type
   error: string | null;
 }> {
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
 
   try {
+    // 2. REMOVE any local 'type ServiceProvider = { ... }' definition from this file.
+
     let query = supabase.from('service_providers').select('*');
 
-    // Filter by the 'Specific Category' column.
-    // Use the exact column name from your database, including spaces.
+    // Using the confirmed lowercase_with_underscore column name
     query = query.eq('specific_category', specificCategory);
 
     const { data, error } = await query;
     if (error) throw error;
 
-    // We can revalidate the path to ensure data is fresh on navigation
     revalidatePath(`/category/${specificCategory}`);
 
+    // The 'data' returned from Supabase will now be correctly typed
+    // and match what the client component expects.
     return { providers: data || [], error: null };
   } catch (error: any) {
     console.error("Server Action Error:", error.message);
