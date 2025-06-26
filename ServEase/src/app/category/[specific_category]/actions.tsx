@@ -5,7 +5,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
-import type { ServiceProvider } from '../../lib//supabase/types'; // Adjust path if needed
+import type { ServiceProvider } from '../../lib/supabase/types'; // Adjust path if needed
 
 /**
  * Fetches providers based on the 'specific_category' column.
