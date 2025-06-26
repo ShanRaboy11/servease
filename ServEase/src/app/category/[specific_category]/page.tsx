@@ -1,4 +1,4 @@
-import SpecificCategoryClient from './components/specific-category'; 
+import SpecificCategoryClient from './components/SpecificCategoryClient'; 
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import styles from '../../styles/specificcategory.module.css';
