@@ -1,8 +1,8 @@
-import SpecificCategoryClient from './specific-category'; 
+import SpecificCategoryClient from './components/specific-category'; 
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import styles from '../styles/specific-category.module.css';
-import type { ServiceProvider } from '../lib/supabase/types'; 
+import type { ServiceProvider } from '../../lib/supabase/types'; 
 
 interface CategoryPageProps {
   params: {

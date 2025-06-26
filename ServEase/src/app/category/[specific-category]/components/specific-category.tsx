@@ -5,8 +5,8 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from '../styles/specific-category.module.css'; 
-import { getProvidersBySpecificCategory } from './actions';
-import type { ServiceProvider } from '../lib/supabase/types'; 
+import { getProvidersBySpecificCategory } from '../actions';
+import type { ServiceProvider } from '../../../lib/supabase/types'; 
 
 const StarRating = ({ rating }: { rating: number }) => {
   const totalStars = 5;
