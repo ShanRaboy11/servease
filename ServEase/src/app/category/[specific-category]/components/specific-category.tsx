@@ -4,7 +4,7 @@ import { useState, useTransition } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import styles from '../styles/specific-category.module.css'; 
+import styles from '../../../styles/specificcategory.module.css'; 
 import { getProvidersBySpecificCategory } from '../actions';
 import type { ServiceProvider } from '../../../lib/supabase/types'; 
 
