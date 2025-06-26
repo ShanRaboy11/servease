@@ -6,18 +6,8 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from '../styles/specific-category.module.css'; 
 import { getProvidersBySpecificCategory } from './actions';
+import type { ServiceProvider } from '../lib/supabase/types'; 
 
-// Define the data structure to match your Supabase table EXACTLY
-type ServiceProvider = {
-  id: number;
-  name: string;
-  location: string;
-  rating: number;
-  image_url: string;
-  service_icon_url: string;
-  Category: string; // e.g., 'Personal Care & Beauty'
-  'Specific Category': string; // e.g., 'Barbershops'
-};
 
 // --- DYNAMIC STAR RATING COMPONENT (No changes needed) ---
 const StarRating = ({ rating }: { rating: number }) => {
