@@ -4,13 +4,13 @@ import { cookies } from 'next/headers';
 import styles from '../styles/specific-category.module.css';
 import type { ServiceProvider } from '../lib/supabase/types'; 
 
-interface PageProps {
+interface CategoryPageProps {
   params: {
     specific_category: string;
   };
 }
 
-export default async function SpecificCategoryPage({ params }: PageProps) {
+export default async function SpecificCategoryPage({ params }: CategoryPageProps) {
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
   
@@ -23,11 +23,10 @@ export default async function SpecificCategoryPage({ params }: PageProps) {
   let categoryName = "Services";
 
   try {
-    // 3. FIX THE SUPABASE QUERY to use the correct column name with a space
     const { data, error } = await supabase
       .from('service_providers')
       .select('*')
-      .eq('specific_category', specificCategory); // <-- FIXED
+      .eq('specific_category', specificCategory); 
 
     if (error) throw error;
     

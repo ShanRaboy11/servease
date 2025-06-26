@@ -1,5 +1,3 @@
-// app/category/[specific_category]/actions.ts
-
 'use server';
 
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -15,7 +13,7 @@ type ServiceProvider = {
   image_url: string;
   service_icon_url: string;
   Category: string; // e.g., 'Personal Care & Beauty'
-  'Specific Category': string; // e.g., 'Barbershops'
+  specific_category: string; // e.g., 'Barbershops'
 };
 
 /**
@@ -34,7 +32,7 @@ export async function getProvidersBySpecificCategory(specificCategory: string): 
 
     // Filter by the 'Specific Category' column.
     // Use the exact column name from your database, including spaces.
-    query = query.eq('Specific Category', specificCategory);
+    query = query.eq('specific_category', specificCategory);
 
     const { data, error } = await query;
     if (error) throw error;

@@ -8,8 +8,6 @@ import styles from '../styles/specific-category.module.css';
 import { getProvidersBySpecificCategory } from './actions';
 import type { ServiceProvider } from '../lib/supabase/types'; 
 
-
-// --- DYNAMIC STAR RATING COMPONENT (No changes needed) ---
 const StarRating = ({ rating }: { rating: number }) => {
   const totalStars = 5;
   const fullStars = Math.round(rating);
@@ -29,7 +27,6 @@ const StarRating = ({ rating }: { rating: number }) => {
   );
 };
 
-// --- REUSABLE CARD COMPONENT (No changes needed) ---
 const ServiceProviderCard = ({
   id,
   name,
