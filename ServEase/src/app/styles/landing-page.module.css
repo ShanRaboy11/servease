@@ -1,15 +1,15 @@
 .landingPage {
   width: 100%;
-  position: relative;
-  background-color: var(--color-whitesmoke);
-  box-sizing: border-box;
-  min-height: 100vh;
-  overflow: hidden;
-  text-align: center;
-  font-size: var(--font-size-16);
-  color: var(--color-snow);
-  font-family: var(--font-dm-sans);
-  cursor: default;
+position: relative;
+background-color: #f8f7f3;
+border: 1px solid #000;
+box-sizing: border-box;
+height: 4189px;
+overflow: hidden;
+text-align: center;
+font-size: 16px;
+color: #fbf7f4;
+font-family: 'DM Sans';
 }
 
 .serveaseLogoAlbumCover31,
@@ -46,23 +46,25 @@
   	top: 1.5rem;
   	left: 50%;
     transform: translateX(-50%);
-  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  	border-radius: 50px;
-  	background-color: var(--color-white);
-    width: min(1113px, calc(100vw - 3rem));	
-    height: 69px;
-  	overflow: hidden;
-  	display: flex;
-    flex-wrap: nowrap;
-  	flex-direction: row;
-  	align-items: center;
-  	justify-content: space-between;
-  	padding: 0px 90px 0px 60px;
-  	box-sizing: border-box;
   	gap: 1rem;
-  	font-size: var(--font-size-18);
-  	color: var(--color-black);
-    z-index: 100;
+width: 70%;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 50px;
+background-color: #fff;
+height: 69px;
+overflow: hidden;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-start;
+padding: 0px 90px 0px 60px;
+box-sizing: border-box;
+gap: 10px;
+text-align: center;
+font-size: 18px;
+color: #000;
+font-family: 'DM Sans';
+z-index: 100;
   animation: bounceInTop 0.8s ease forwards;
 }
 
@@ -77,8 +79,9 @@
 
 .serveaseLogoAlbumCover31 {
  width: 40px;
-  position: relative;
-  object-fit: cover;
+position: relative;
+max-height: 100%;
+object-fit: cover;
   transition: transform 0.3s ease;
 }
 
@@ -105,19 +108,16 @@
 
 .homeParent {
  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(15px, 3vw, 25px);
-  color: var(--color-gray-400);
-  flex-wrap: nowrap;
-  flex-shrink: 1;
-  min-width: 0; 
+flex-direction: row;
+align-items: center;
+justify-content: center;
+gap: 25px;
+color: #241f1b;
 }
 
 .home1 {
    position: relative;
-  line-height: 150%;
+  line-height: 120%;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -126,7 +126,7 @@
   min-width: fit-content;
   flex-shrink: 0;
   font-size: clamp(14px, 1.8vw, 18px);
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 1rem;
   transition: all 0.3s ease;
 }
 .contactUs1 {
@@ -154,27 +154,22 @@
 }
 
 .button1 {
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-  min-width: 80px;
-  flex-shrink: 0;
-
-  width: clamp(90px, 12vw, 120px);
-  height: 40px;
-  border-radius: var(--br-8);
-  border: 1px solid transparent;
-  background: linear-gradient(120deg, #a68465, #c3a68c, #a68465);
-  background-size: 200% 100%;
-  background-position: 0% 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-
-  color: var(--color-snow);
-  cursor: pointer;
+  width: 100px;
+border-radius: 8px;
+background-color: #a68465;
+border: 1px solid #a68465;
+box-sizing: border-box;
+height: 40px;
+overflow: hidden;
+flex-shrink: 0;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+padding: 12px;
+gap: 8px;
+cursor: pointer;
+color: #fbf7f4;
   transition: transform 0.3s ease, background-position 0.5s ease;
 }
 
@@ -184,10 +179,12 @@
 }
 
 .signIn {
-  position: relative;
-  font-weight: 550;
-  line-height: 100%;
-  color: var(--color-snow);
+  width: 75px;
+position: relative;
+line-height: 100%;
+font-weight: 600;
+display: inline-block;
+flex-shrink: 0;
   z-index: 1;
   transition: all 0.3s ease;
 }
@@ -1295,26 +1292,24 @@
 }
 
 .heading2 {
-position: relative;
-  width: 100%;
-  top: auto;
-  right: auto;
-  left: auto;
-  height: auto;
-  font-size: clamp(24px, 4vw, 30px);
-  margin-bottom: 1rem;
+position: absolute;
+width: calc(100% - 160px);
+top: 87px;
+right: 80px;
+left: 80px;
+height: 90px;
+font-size: 30px;
 }
 
 .areYouLookingContainer {
-  top: auto;
-  left: auto;
-  line-height:45px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  margin-top: 8%;
-  padding: 0;
+  position: absolute;
+top: -31px;
+left: 0px;
+line-height: 45px;
+display: flex;
+align-items: center;
+width: 346px;
+height: 90px;
 }
 
 .areYouLooking {
@@ -1322,19 +1317,18 @@ position: relative;
 }
 
 .findTrustedProfessionals {
-  position: relative;
-  top: auto;
-  left: auto;
-  line-height: 1.6;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  height: auto;
-  margin: 1rem 0 2rem 0;
+  position: absolute;
+top: 149px;
+left: 80px;
+line-height: 27.75px;
+display: flex;
+align-items: center;
+width: 355.4px;
+height: 55.5px;
 }
 
 .link {
-  position: relative;
+  position: absolute;
   border-radius: var(--br-12);
   background-color: transparent;
   border: 1px solid #402f27;
@@ -1349,8 +1343,8 @@ position: relative;
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  bottom: auto;
-  left: auto;
+  bottom: 19.11px;
+  left: 80px;
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -1375,7 +1369,7 @@ position: relative;
 }
 
 .link1 {
-  position: relative;
+  position: absolute;
   border-radius: var(--br-12);
   background-color: transparent;
   border: 1px solid var(--color-antiquewhite);
@@ -1390,8 +1384,8 @@ position: relative;
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  bottom: auto;
-  left: auto;
+  bottom: 19.11px;
+  left: 80px;
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -1419,7 +1413,6 @@ position: relative;
   line-height: 15px;
   font-weight: 500;
   font-size: 14px;
-  white-space: nowrap;
   transition: all 0.3s ease;
   color: #402f27;
 }
@@ -1428,7 +1421,6 @@ position: relative;
   line-height: 15px;
   font-weight: 500;
   font-size: 14px;
-  white-space: nowrap;
   transition: all 0.3s ease;
   color: var(--color-antiquewhite);
 }
@@ -1475,26 +1467,24 @@ position: relative;
 }
 
 .heading21 {
-  position: relative;
-  width: 100%;
-  top: auto;
-  right: auto;
-  left: auto;
-  height: auto;
-  font-size: clamp(24px, 4vw, 30px);
-  margin-bottom: 1rem;
+position: absolute;
+width: calc(100% - 160px);
+top: 87px;
+right: 80px;
+left: 80px;
+height: 90px;
+font-size: 30px;
 }
 
 .areYouOffering {
-  top: auto;
-  left: auto;
-  line-height:45px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  margin-top: 8%;
-  padding: 0;
+  position: absolute;
+top: -31px;
+left: 0px;
+line-height: 45px;
+display: flex;
+align-items: center;
+width: 346px;
+height: 90px;
 }
 
 .serveaseLogoAlbumCover1 {
@@ -1539,15 +1529,14 @@ position: relative;
 /* footer */
 
 .footer {
-  position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), var(--color-white);
-  width: 100%;
-  min-height: 475px;
-  height: auto;
-  text-align: left;
-  color: var(--color-black);
-  padding: 80px 0 40px;
-  margin-top: auto;
+  position: absolute;
+top: 3708px;
+left: 0px;
+background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #fff;
+width: 1440px;
+height: 475px;
+text-align: left;
+color: #000;
 
 }
 
@@ -1556,8 +1545,8 @@ position: relative;
   top: 0px;
   left: 0px;
   background-color: var(--color-white);
-  width: 100%;
-  height: 534px;
+  width: 1550px;
+  height: 475px;
   
 }
 
@@ -1743,7 +1732,8 @@ position: relative;
 .aboutUs,
 .home,
 .discover,
-.createAnAccount {
+.createAnAccount
+ {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -1759,3 +1749,510 @@ position: relative;
   color: var(--color-tan);
 }
 
+/* Mobile Responsive Styles - Add these media queries to your existing CSS */
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  .navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  }
+
+  .heroImageWrapper {
+    width: 95%;
+    height: 600px;
+    margin: 50px auto;
+  }
+
+  .bridgingClientsAndContainer {
+    font-size: 38px;
+    margin-left: 15px;
+  }
+
+  .discoverASmarter {
+    font-size: 22px;
+    margin-right: 15px;
+  }
+
+  .aboutUsSection {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+
+  .whatWeOfferContainerChild {
+    margin: 0 5%;
+    padding: 30px;
+  }
+
+  .whyChooseGrid {
+    margin: 0 5%;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .landingPage {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Navigation Mobile */
+  .navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-top: 28px;
+  }
+
+  .navigationlogo {
+    gap: 0.5rem;
+  }
+
+  .serveaseLogoAlbumCover31 {
+    width: 35px;
+  }
+
+  .servease1 {
+    font-size: 24px;
+  }
+
+  .homeParent {
+    gap: 15px;
+  }
+
+  .home1,
+  .contactUs1 {
+    width: 30px;
+    font-size: 14px;
+  }
+
+  .button1 {
+    width: 80px;
+    height: 35px;
+    padding: 8px;
+  }
+
+  .signIn {
+    font-size: 12px;
+  }
+
+  /* Hero Section Mobile */
+  .heroImageWrapper {
+    width: 95%;
+    height: 400px;
+    margin: 100px auto 40px auto;
+    border-radius: 20px;
+  }
+
+  .divinheroImage {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .bridgingClientsAndContainer {
+    font-size: 28px;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .discoverASmarter {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .button {
+    width: 200px;
+    font-size: 18px;
+    margin-top: 20px;
+    left: 250px;
+  }
+
+  /* About Us Section Mobile */
+  .aboutUsSection {
+    flex-direction: column;
+    margin: 0 5%;
+    gap: 30px;
+  }
+
+  .servChild {
+    min-width: 280px;
+    height: 300px;
+    font-size: 20px;
+  }
+
+  .subtractIcon {
+    width: 80px;
+    height: 80px;
+    margin-left: 65%;
+  }
+
+  .servChild1 {
+    font-size: 50px;
+    margin-top: 60%;
+  }
+
+  .serviceFacilities {
+    padding-top: 85%;
+    font-size: 18px;
+  }
+
+  .aboutusbox {
+    flex-direction: column;
+    min-width: 280px;
+    text-align: center;
+  }
+
+  .aboutUsChild {
+    margin: 5% auto;
+    min-width: 200px;
+  }
+
+  .aboutUs1 {
+    font-size: 35px;
+    width: auto;
+    text-align: center;
+  }
+
+  .serveaseIsYour,
+  .fromHomeRepairs {
+    max-width: none;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .aboutUsintersect {
+    width: 250px;
+    height: 200px;
+  }
+
+  /* What We Offer Section Mobile */
+  .whatweoffer {
+    margin-top: 80px;
+    font-size: 20px;
+  }
+
+  .whatWeOfferContainer {
+    margin: 5% 0 2% 5%;
+    font-size: 35px;
+  }
+
+  .whatWeOfferContainerChild {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 5%;
+  }
+
+  .onlineBooking,
+  .dualDahsboard,
+  .serviceDirectory {
+    max-width: none;
+    min-height: 350px;
+  }
+
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .easilyBookAppointments,
+  .whetherYoureA,
+  .searchForService {
+    margin: 8% 5%;
+    font-size: 16px;
+  }
+
+  /* Why Choose Section Mobile */
+  .whyChooseServeaseContainer {
+    margin: 5% 0 2% 5%;
+    font-size: 35px;
+  }
+
+  .whyChooseGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 5%;
+  }
+
+  .allInOneBox,
+  .smartschedulingBox {
+    min-height: 180px;
+  }
+
+  .transparentTrustworthyBox {
+    grid-column: span 1;
+    min-height: 220px;
+  }
+
+  .builtForGrowthBox {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 300px;
+  }
+
+  .allInOnePlatform,
+  .smartScheduling,
+  .transparentTrustworthy,
+  .builtForGrowth,
+  .instantMessaging {
+    font-size: 16px;
+  }
+
+  .browseBookAnd,
+  .avoidConflictsWith,
+  .makeConfidentDecisions,
+  .boostYourPresence,
+  .connectInstantlyFor {
+    font-size: 12px;
+    max-width: none;
+  }
+
+  /* Register Section Mobile */
+  .register {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 5%;
+  }
+
+  .background,
+  .background1 {
+    min-width: 280px;
+    min-height: 280px;
+  }
+
+  .areYouLookingContainer,
+  .areYouOffering {
+    width: 346px;
+    height: 90px;
+    margin: 10% 5%;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .findTrustedProfessionals {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 5% 5%;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .link,
+  .link1 {
+    position: relative;
+    top: 245px;
+    left: 80px;
+    margin: 10px auto;
+    width: 159px;
+    height: 56px;
+  }
+
+  .serveaseLogoAlbumCover32,
+  .serveaseLogoAlbumCover1 {
+    width: 100px;
+    height: 100px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Footer Mobile */
+  .footer {
+   position: relative;
+  top: auto;
+  height: auto;
+  padding: 40px 0;
+  background-color: white;
+  border-top: 1px solid #e9ecef;
+  }
+
+  .footerChild {
+    position: relative;
+    height: 475px;
+  }
+
+  .servease {
+    position: flex;
+    text-align: center;
+    top: 30px;
+    width: 50%;
+    left: 190px;
+    align-items: center;
+  }
+
+  .serveaseLogoAlbumCover3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    top: 30px;
+    left: 255px;
+    margin-bottom: 50px;
+  }
+
+  .yourTrustedPlatform {
+    position: relative;
+    left: 50px;
+    top: 30px;
+    text-align: center;
+    width: 90%;
+    margin: 20px auto;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .quickLinks,
+  .support,
+  .contactUs {
+    position: relative;
+    top: 50px;
+    left: auto;
+    text-align: center;
+    width: 100%;
+    margin: 30px 0 10px 0;
+    font-size: 20px;
+  }
+
+  .contactNumber,
+  .supportserveasecom,
+  .aboutUs,
+  .termsConditions,
+  .privacyPolicy,
+  .faqs,
+  .createAnAccount,
+  .discover,
+  .home{
+    position: relative;
+    top: 50px;
+    left: auto;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  .lineParent {
+    position: relative;
+    top: 50px;
+    left: auto;
+    width: 90%;
+    margin: 30px auto 0 auto;
+    text-align: center;
+  }
+
+  .lineDiv {
+    width: 100%;
+  }
+
+  .servease2025 {
+    position: relative;
+    top: auto;
+    left: auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+  .navigation {
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  }
+
+  .heroImageWrapper {
+    height: 300px;
+    margin: 120px auto 30px auto;
+  }
+
+  .divinheroImage {
+    margin-top: 150px;
+  }
+
+  .bridgingClientsAndContainer {
+    font-size: 24px;
+  }
+
+  .discoverASmarter {
+    font-size: 16px;
+  }
+
+  .button {
+    width: 180px;
+    font-size: 16px;
+  }
+
+  .servChild {
+    min-width: 260px;
+    height: 280px;
+  }
+
+  .aboutusbox {
+    min-width: 260px;
+  }
+
+  .whatWeOfferContainer,
+  .whyChooseServeaseContainer {
+    font-size: 28px;
+  }
+
+  .background,
+  .background1 {
+    min-width: 260px;
+  }
+
+  .areYouLookingContainer,
+  .areYouOffering {
+    font-size: 18px;
+  }
+}
+
+/* Landscape Mobile Styles */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .heroImageWrapper {
+    height: 250px;
+    margin: 80px auto 20px auto;
+  }
+
+  .divinheroImage {
+    margin-top: 100px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .bridgingClientsAndContainer {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .discoverASmarter {
+    font-size: 14px;
+    margin-top: 0;
+  }
+
+  .navigation {
+    flex-direction: row;
+    top: 0.5rem;
+  }
+}

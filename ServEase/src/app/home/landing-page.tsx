@@ -803,21 +803,6 @@ const LandingPage = () => {
             Your trusted platform to discover, book, and manage local
             services—anytime, anywhere.
           </div>
-          <b className={styles.contactUs}>Contact Us</b>
-          <div className={styles.supportserveasecom}>support@servease.com</div>
-          <div className={styles.contactNumber}>+63 996 3175 214</div>
-          <b className={styles.support}>Support</b>
-          <div className={styles.faqs}>FAQs</div>
-          <div className={styles.privacyPolicy}>Privacy Policy</div>
-          <div className={styles.termsConditions}>{`Terms & Conditions`}</div>
-          <div
-            className={styles.aboutUs}
-            onClick={() => {
-              window.scrollTo({ top: 500, behavior: "smooth" });
-            }}
-          >
-            About Us
-          </div>
           <b className={styles.quickLinks}>Quick Links</b>
           <div
             className={styles.servease}
@@ -847,6 +832,21 @@ const LandingPage = () => {
           >
             Create an Account
           </div>
+          <b className={styles.support}>Support</b>
+          <div className={styles.faqs}>FAQs</div>
+          <div className={styles.privacyPolicy}>Privacy Policy</div>
+          <div className={styles.termsConditions}>{`Terms & Conditions`}</div>
+          <div
+            className={styles.aboutUs}
+            onClick={() => {
+              window.scrollTo({ top: 500, behavior: "smooth" });
+            }}
+          >
+            About Us
+          </div>
+          <b className={styles.contactUs}>Contact Us</b>
+          <div className={styles.supportserveasecom}>support@servease.com</div>
+          <div className={styles.contactNumber}>+63 996 3175 214</div>
           <div className={styles.lineParent}>
             <div className={styles.lineDiv} />
             <div className={styles.servease2025}>
