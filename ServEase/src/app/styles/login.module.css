@@ -681,16 +681,6 @@
   margin-right: -5%;
   margin-top: -30%;
 }
-.buttontext {
-  width: 100px;
-  position: relative;
-  height: 30px;
-  overflow: hidden;
-  flex-shrink: 0;
-  cursor: pointer;
-  font-size: 20px;
-  margin-left: -13%;
-}
 }
 
 
@@ -698,10 +688,10 @@
 @media screen and (max-width: 768px) {
   .authwindow {
     width: 100%;
-    height: 40%;
+    height: 58%;
     border-radius: 26px;
     background: white;
-    top: 100px;
+    top: 130px;
     position: relative;
     margin: 5% 0 0 5%;
   }
@@ -709,7 +699,7 @@
   .authlogoIcon {
     position: absolute;
     width: 100%;
-    height: 85px;
+    height: 120px;
     margin-top: 5%;
     margin-left: 1px;
   }
@@ -727,77 +717,49 @@
     left: 0;
   }
   .title {
-    font-size: 25px;
+    font-size: 35px;
     margin-right: 10%;
     width: 100%;
     position: relative;
   }
   .welcomeToServeaseContainer {
   position: relative;
-  margin-top: -9%;
-  right: 36%;
+  margin-top: -7%;
+  right: 20%;
 }
   .pleaseLogIn {
   position: relative;
-  font-size: 14px;
-  right: 36%;
+  font-size: 17px;
+  right: 20%;
   }
   .logincontent {
     width: 100%;
     padding: 0px 30px;
   }
-  .tbx {
-  height: 30px;
-}
-.passwordInput::placeholder {
-  color: #a0a0a0;
-  font-size: 12px;
-}
-.hideIcon {
-  width: 30px;
-  top: calc(50% - 9px);
-  right: 15px;
-  height: 17px;
-}
-  .email1, .password1 {
-    width: 87%;
-    margin-right: 100px;
-    right: 58%;
-    font-size: 13px;
-    top: -70px;
-  }
   
+  .email1, .password1 {
+    width: 110%;
+    margin-right: 110px;
+    right: 40%;
+  }
   .buttoncontainer {
-  width: 150px;
+  width: 300px;
   position: relative;
   border-radius: 40px;
   background-color: var(--color-tan);
-  height: 33px;
+  height: 40px;
   overflow: hidden;
   flex-shrink: 0;
   opacity: 0.5;
-  bottom: 160px;
-  right: 135%;
-}
-
-.login {
-  display: flex;
-  width: 100%;
-  position: relative;
-  background-color: #f9f7f4;
-  box-sizing: border-box;
-  height: 100vh;
-  overflow: hidden;
-  text-align: center;
-  font-size: var(--font-size-10);
-  color: var(--color-white);
-  font-family: var(--font-dm-sans);
-  cursor: default;
+  font-size: 22px;
+  cursor: pointer;
+  bottom: 90px;
+  right: 40%;
 }
 .navbar {
-  width: 300px;
+  width: 400px;
   border-radius: var(--br-12);
-  height: 47px;
+  height: 56px;
   overflow: hidden;
   flex-shrink: 0;
   display: flex;
@@ -809,10 +771,10 @@
   position: relative;
 }
 .login2 {
-  width: 150px;
+  width: 200px;
   position: relative;
   background-color: var(--color-tan);
-  height: 47px;
+  height: 56px;
   overflow: hidden;
   flex-shrink: 0;
   cursor: pointer;
@@ -823,16 +785,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 83%;
-  margin-left: 11%;
-  margin-top: -3%;
+  margin-right: 77%;
+  margin-left: 36%;
+  margin-top: -1%;
   position: relative;
 }
 .rememberMe1 {
   position: relative;
   font-weight: 500;
   cursor: pointer;
-  font-size: 11px;
 }
 
 .rememberMe {
@@ -840,9 +801,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  margin-left: -55%;
-  margin-top: -43%;
+  gap: 12px;
+  margin-left: -37%;
+  margin-top: -30%;
   position: relative;
 }
 
@@ -852,34 +813,8 @@
   font-weight: 500;
   color: var(--color-tan);
   cursor: pointer;
-  margin-right: 74%;
-  margin-top: -43%;
-  font-size: 11px;
-}
-.checkedContainer {
-  width: 15px;
-  height: 15px;
-  position: relative;
-  border-radius: 1px;
-  background-color: var(--color-tan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.checkIcon {
-  width: 12px;
-  height: 12px;
-}
-.buttontext {
-  width: 50px;
-  position: relative;
-  height: 30px;
-  overflow: hidden;
-  flex-shrink: 0;
-  cursor: pointer;
-  font-size: 15px;
-  margin-left: 5%;
+  margin-right: 33%;
+  margin-top: -30%;
 }
 }
 
