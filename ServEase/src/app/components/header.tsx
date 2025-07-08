@@ -59,7 +59,7 @@ const Header = ({ avatarUrl, userRole, homePath }: HeaderProps) => {
     { label: "My Account", onClick: handleAccountClick },
     { label: "Appointments", onClick: handleAppointmentsClick },
     { label: "Messages", href: "/messages" },
-    { label: "Notifications", href: "/notifications" },
+    { label: "Notifications", href: "/client-notification" },
     { label: "Log out", onClick: handleLogout },
   ];
 

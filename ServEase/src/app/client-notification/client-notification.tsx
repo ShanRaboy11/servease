@@ -1,25 +1,81 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+// Step 1: Add necessary imports
+import { useState, useCallback, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/client-notification.module.css";
 import { useRouter } from "next/navigation";
+import { createClient } from "../lib/supabase/client"; // Import your Supabase client
+import { formatDistanceToNow } from "date-fns";   // Import date-fns for timestamps
 
+// Step 2: Update the Notification interface to match our needs
 export interface Notification {
-  id: string;
+  id: string; // This will be the UUID from the notifications table
+  appointmentId: string | number; // This will be the bigint from the appointments table
   title: string;
   subtitle: string;
   body: string;
-  type: "new" | "updated";
+  type: "new" | "updated"; // The UI type ("new" or "updated")
   icon: string;
-  timestamp: string;
+  timestamp: string; // This will be an ISO date string from the DB
   isRead: boolean;
-  avatarUrl: string;
 }
+
+type DbNotification = {
+  id: string;
+  is_read: boolean;
+  created_at: string;
+  type: 'APPOINTMENT_BOOKED' | 'APPOINTMENT_STATUS_UPDATED' | 'APPOINTMENT_CANCELLED';
+  metadata: { from?: string; to?: string } | null;
+  appointments: {
+    id: number;
+    time: string;
+    services: string;
+    profiles: { // THIS IS NOW 'profiles'
+      name: string;
+    } | null;
+  } | null;
+};
+
+const formatNotificationForUI = (n: DbNotification): Notification | null => {
+  if (!n.appointments || !n.appointments.profiles) return null;
+
+  const { appointments: appointment, metadata } = n;
+  const { profiles: provider } = appointment; // Changed from 'providers' to 'profiles'
+
+  const base = {
+    id: n.id,
+    appointmentId: appointment.id,
+    timestamp: n.created_at,
+    isRead: n.is_read,
+    subtitle: `${provider.name} - ${appointment.services}`,
+  };
+
+  switch (n.type) {
+    case 'APPOINTMENT_BOOKED':
+      return {
+        ...base,
+        title: "New Appointment Booked",
+        body: `Your appointment has been successfully scheduled for ${new Date(appointment.time).toLocaleString()}. Please arrive 15 minutes early for check-in.`,
+        type: "new",
+        icon: "/calendar_month noti.svg",
+      };
+    case 'APPOINTMENT_STATUS_UPDATED':
+      return {
+        ...base,
+        title: "Appointment Status Updated",
+        body: `Your appointment status has been changed from "${metadata?.from}" to "${metadata?.to}". The appointment is scheduled for ${new Date(appointment.time).toLocaleString()}.`,
+        type: "updated",
+        icon: "/autorenew.svg",
+      };
+    default:
+      return null;
+  }
+};
 
 interface NotificationItemProps {
   notification: Notification;
-  onToggleRead: (id: string) => void;
+  onToggleRead: (id: string, currentState: boolean) => void;
 }
 
 const NotificationItem = ({
@@ -30,38 +86,34 @@ const NotificationItem = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
 
+  // This function now calls the parent with the required info
   const handleToggleRead = useCallback(() => {
     setIsAnimating(true);
-    onToggleRead(notification.id);
+    onToggleRead(notification.id, notification.isRead);
     const timer = setTimeout(() => setIsAnimating(false), 150);
     return () => clearTimeout(timer); // Cleanup
-  }, [notification.id, onToggleRead]);
+  }, [notification.id, notification.isRead, onToggleRead]);
 
+  // handleButtonClick for the ripple effect (no changes needed here)
   const handleButtonClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-
       if (!buttonRef.current) return;
-
       const button = buttonRef.current;
       const rect = button.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const x = e.clientX - rect.left - size / 2;
       const y = e.clientY - rect.top - size / 2;
-
       const existingRipples = button.getElementsByClassName(styles.ripple);
       Array.from(existingRipples).forEach((r) => r.remove());
-
       const ripple = document.createElement("span");
       ripple.className = styles.ripple;
       ripple.style.width = ripple.style.height = `${size}px`;
       ripple.style.left = `${x}px`;
       ripple.style.top = `${y}px`;
-
       button.appendChild(ripple);
-
       const timer = setTimeout(() => ripple.remove(), 600);
-      return () => clearTimeout(timer); // Cleanup
+      return () => clearTimeout(timer);
     },
     []
   );
@@ -106,10 +158,13 @@ const NotificationItem = ({
             className={styles.cardAvatar}
             width={20}
             height={20}
-            alt={`Avatar for ${notification.title}`}
-            src="clock-profile.svg"
+            alt="Clock icon"
+            src="/clock-profile.svg" // Make sure this icon exists
           />
-          <time>{notification.timestamp}</time>
+          {/* Step 4: Use date-fns to format the timestamp dynamically */}
+          <time dateTime={notification.timestamp}>
+            {formatDistanceToNow(new Date(notification.timestamp), { addSuffix: true })}
+          </time>
         </div>
         <div className={styles.notificationActions}>
           <button
@@ -118,13 +173,13 @@ const NotificationItem = ({
             } ${isAnimating ? styles.animating : ""}`}
             title={notification.isRead ? "Mark as unread" : "Mark as read"}
           />
-
           <button
             ref={buttonRef}
             className={`${styles.btn} ${styles.btnPrimary}`}
             onClick={(e) => {
               handleButtonClick(e);
-              router.push("/client-appointments");
+              // You can even make this dynamic if needed:
+              router.push(`/client-appointments/${notification.appointmentId}`);
             }}
             aria-label={`View details for ${notification.title}`}
           >
@@ -136,94 +191,106 @@ const NotificationItem = ({
   );
 };
 
-const NotificationPage = () => {
-  const [notifications, setNotifications] = useState<Notification[]>([
-    {
-      id: "1",
-      title: "New Appointment Booked",
-      subtitle: "Dr. Sarah Johnson - Consultation",
-      body: "Your appointment has been successfully scheduled for March 15, 2025 at 2:30 PM. Please arrive 15 minutes early for check-in. A confirmation email has been sent to your registered email address.",
-      type: "new",
-      icon: "/calendar_month noti.svg",
-      timestamp: "2 minutes ago",
-      isRead: false,
-      avatarUrl: "/default-avatar.jpg",
-    },
-    {
-      id: "2",
-      title: "Appointment Status Updated",
-      subtitle: "Dr. Michael Chen - Follow-up",
-      body: 'Your appointment status has been changed from "Pending" to "Confirmed". The appointment is scheduled for March 18, 2025 at 10:00 AM. Please bring your previous test results and insurance card.',
-      type: "updated",
-      icon: "/autorenew.svg",
-      timestamp: "15 minutes ago",
-      isRead: true,
-      avatarUrl: "/default-avatar.jpg",
-    },
-  ]);
 
-  const handleToggleRead = useCallback((id: string) => {
+const NotificationPage = () => {
+  // --- THE FIX: Create a stable Supabase client instance for this component ---
+  // The initializer function for useState runs only once, on the first render.
+  const [supabase] = useState(() => createClient());
+  
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter(); // It's good practice to get this once at the top
+
+  const handleToggleRead = useCallback(async (id: string, currentState: boolean) => {
+    // Optimistic UI update for instant feedback
     setNotifications((prev) =>
-      prev.map((notification) =>
-        notification.id === id
-          ? { ...notification, isRead: !notification.isRead }
-          : notification
-      )
+      prev.map((n) => (n.id === id ? { ...n, isRead: !currentState } : n))
     );
-  }, []);
+
+    // Update the record in Supabase
+    const { error } = await supabase
+      .from('notifications')
+      .update({ is_read: !currentState })
+      .eq('id', id);
+
+    if (error) {
+      console.error("Failed to update notification status:", error);
+      // If the update fails, revert the UI change
+      setNotifications((prev) =>
+        prev.map((n) => (n.id === id ? { ...n, isRead: currentState } : n))
+      );
+    }
+  }, [supabase]); // Now it's correct to include the stable `supabase` instance as a dependency
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        // We will use the `!inner` join first, as it's more likely to be correct
+        // if your data integrity is good.
+        const { data, error } = await supabase
+          .from('notifications')
+          .select(`
+            id, is_read, created_at, type, metadata,
+            appointments!inner (
+              id, time, services,
+              providers!inner ( name )
+            )
+          `)
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          console.error("Error fetching notifications:", error);
+          throw error;
+        }
+
+        console.log("Raw data from Supabase:", data); // Keep this for debugging
+
+        if (data) {
+          const formattedData = data.map(formatNotificationForUI).filter(Boolean) as Notification[];
+          setNotifications(formattedData);
+        }
+      } catch (error) {
+        console.error("An error occurred in fetchNotifications:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchNotifications();
+  }, [supabase]); // It's also correct to include the stable `supabase` instance here
+
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h1>Notifications</h1>
+          <p>Loading your latest activities...</p>
+        </header>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
-      <div className={styles.floatingElements} aria-hidden="true">
-        <div className={styles.floatingCircle}></div>
-        <div className={styles.floatingCircle}></div>
-        <div className={styles.floatingCircle}></div>
-      </div>
-
       <header className={styles.header}>
         <h1>Notifications</h1>
         <p>Stay updated with your latest activities</p>
       </header>
-
       <main className={styles.notificationContainer}>
-        {notifications.map((notification) => (
-          <NotificationItem
-            key={notification.id}
-            notification={notification}
-            onToggleRead={handleToggleRead}
-          />
-        ))}
+        {notifications.length > 0 ? (
+          notifications.map((notification) => (
+            <NotificationItem
+              key={notification.id}
+              notification={notification}
+              onToggleRead={handleToggleRead}
+            />
+          ))
+        ) : (
+          <p>You have no new notifications.</p>
+        )}
       </main>
     </div>
   );
 };
 
-import Head from "next/head";
-
-const NotificationsPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Notifications - Your App</title>
-        <meta
-          name="description"
-          content="Stay updated with your latest activities"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <NotificationPage />
-    </>
-  );
-};
-
-export default NotificationsPage;
+export default NotificationPage;

@@ -356,7 +356,10 @@ const DashboardClient: NextPage<DashboardClientProps> = ({
   );
   const [isCancelling, setIsCancelling] = useState(false);
 
-  const handleStatusUpdate = async (appointmentId: string, newStatus: string) => {
+  const handleStatusUpdate = async (
+    appointmentId: string,
+    newStatus: string
+  ) => {
     if (newStatus === "canceled") {
       setAppointmentToCancel(appointmentId);
       setShowConfirmDialog(true);
@@ -391,11 +394,11 @@ const DashboardClient: NextPage<DashboardClientProps> = ({
         .from("appointments")
         .update({ status: "canceled" })
         .eq("id", appointmentToCancel);
-      
+
       if (dbError) throw dbError;
 
       // 2. Refresh the UI by removing the appointment from the list
-      setAppointments((prev) => 
+      setAppointments((prev) =>
         prev.filter((apt) => apt.id !== appointmentToCancel)
       );
 
@@ -414,16 +417,15 @@ const DashboardClient: NextPage<DashboardClientProps> = ({
         services: appointmentData.services,
         totalPrice: appointmentData.price,
       };
-      
+
       // 4. Send the notification
       fetch("/api/cancel-appointment", {
-        method: "POST", 
-        headers: { "Content-Type": "application/json" }, 
-        body: JSON.stringify(payload)
-      }).catch((emailError) => 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch((emailError) =>
         console.error("Sending email notifications failed:", emailError)
       );
-
     } catch (error: any) {
       console.error("Error canceling appointment:", error);
       alert(`Cancellation failed: ${error.message}`);
@@ -668,8 +670,8 @@ const DashboardClient: NextPage<DashboardClientProps> = ({
                   <div className={styles.rowContainer} key={service.name}>
                     <div className={styles.facilityName}>{service.name}</div>
                     <b className={styles.facilityNameCap}>
-  PHP {(Number(service.price) || 0).toFixed(2)}
-</b>
+                      PHP {(Number(service.price) || 0).toFixed(2)}
+                    </b>
                   </div>
                 ))}
               </div>
@@ -696,21 +698,24 @@ const DashboardClient: NextPage<DashboardClientProps> = ({
         <div className={styles.modalOverlay}>
           <div className={styles.confirmDialog}>
             <h3>Cancel Appointment</h3>
-            <p>Are you sure you want to cancel this appointment? This action cannot be undone.</p>
+            <p>
+              Are you sure you want to cancel this appointment? This action
+              cannot be undone.
+            </p>
             <div className={styles.confirmButtons}>
-              <button 
-                className={styles.cancelButton} 
-                onClick={() => { 
-                  setShowConfirmDialog(false); 
-                  setAppointmentToCancel(null); 
-                }} 
+              <button
+                className={styles.cancelButton}
+                onClick={() => {
+                  setShowConfirmDialog(false);
+                  setAppointmentToCancel(null);
+                }}
                 disabled={isCancelling}
               >
                 Keep Appointment
               </button>
-              <button 
-                className={styles.confirmButton} 
-                onClick={handleConfirmCancel} 
+              <button
+                className={styles.confirmButton}
+                onClick={handleConfirmCancel}
                 disabled={isCancelling}
               >
                 {isCancelling ? "Cancelling..." : "Cancel Appointment"}
