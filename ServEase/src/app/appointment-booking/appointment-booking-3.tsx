@@ -11,6 +11,7 @@ type Props = {
   onNext: () => void;
 };
 
+// These interfaces are now just for displaying data on the page
 interface ProviderProfile {
   id: string;
   business_name: string;
@@ -59,6 +60,7 @@ export default function Booking3({ onNext }: Props) {
   const facilityId = searchParams.get("facilityId");
 
   useEffect(() => {
+    // This useEffect is still needed to fetch data for the summary display
     if (!facilityId) {
       setErrorMessage("Facility ID is missing from the URL.");
       setIsLoading(false);
@@ -77,6 +79,7 @@ export default function Booking3({ onNext }: Props) {
         return;
       }
 
+      // Fetching only display data, no sensitive info like emails
       const fetchProvider = supabase
         .from("profiles")
         .select("id, business_name, address, contact_number")
@@ -128,36 +131,56 @@ export default function Booking3({ onNext }: Props) {
     }
     setIsSubmitting(true);
     setErrorMessage("");
-    try {
-      const serviceNames = selectedServices.map((service) => service.name);
 
-      const appointmentToInsert = {
-        client_id: clientProfile.id,
-        provider_id: providerProfile.id,
+    try {
+      // Prepare the payload for our secure API route.
+      // This is where we add all the necessary details.
+      const payload = {
+        // IDs for database relations
+        providerId: providerProfile.id,
+        clientId: clientProfile.id,
+        
+        // Basic appointment info
         date: formatDateForDB(selectedDate),
         time: selectedTime,
-        status: "pending",
-        price: selectedServices.reduce((sum, s) => sum + s.price, 0),
-        services: serviceNames,
-        address: providerProfile.address,
+        
+        // Services with their details
+        services: selectedServices.map((s) => ({
+          name: s.name,
+          price: s.price,
+        })),
+
+        // --- ADD THESE FIELDS ---
+        // We are adding all the display information the email templates need.
+        providerName: providerProfile.business_name, // <-- ADD THIS
+        providerAddress: providerProfile.address,     // <-- ADD THIS
+        providerContact: providerProfile.contact_number, // <-- ADD THIS
+        clientName: clientProfile.full_name,          // <-- ADD THIS
       };
 
-      const { error: insertError } = await supabase
-        .from("appointments")
-        .insert(appointmentToInsert);
+      // The rest of the function remains the same
+      const response = await fetch("/api/create-appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-      if (insertError)
-        throw new Error(`Failed to save: ${insertError.message}`);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to create appointment.");
+      }
 
       resetBookingData();
       onNext();
-      router.push("/appointments");
+      router.push("/client-appointments");
     } catch (error: any) {
       setErrorMessage(error.message);
       setIsSubmitting(false);
     }
   };
 
+  // --- The rest of your component's JSX remains exactly the same ---
+  // --- No changes needed for the return() part ---
   if (
     !facilityId ||
     !selectedDate ||

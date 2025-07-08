@@ -413,7 +413,7 @@ const DashboardClient: NextPage<DashboardClientProps> = ({
         address: appointmentData.address,
         date: appointmentData.date,
         time: appointmentData.time,
-        status: "Cancelled",
+        status: "canceled",
         services: appointmentData.services,
         totalPrice: appointmentData.price,
       };
